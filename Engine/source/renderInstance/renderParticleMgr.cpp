@@ -146,7 +146,7 @@ void RenderParticleMgr::addElement( RenderInst *inst )
          PlaneF(Point3F( 0.0f,  0.0f,  0.0f), Point3F( 0.0f,  0.0f,  1.0f)),
          PlaneF(Point3F( 0.0f,  0.0f,  1.0f), Point3F( 0.0f,  0.0f, -1.0f)),
       };
-      const static dsize_t numPlanes = sizeof(planes) / sizeof(PlaneF);
+      const static size_t numPlanes = sizeof(planes) / sizeof(PlaneF);
 
       // Set up a clipper
       ClippedPolyList screenClipper;

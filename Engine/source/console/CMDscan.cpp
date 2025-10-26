@@ -2340,7 +2340,7 @@ static int Sc_ScanString(int ret)
    if (!collapseEscape(CMDtext + 1))
       return -1;
 
-   dsize_t bufferLen = dStrlen(CMDtext);
+   size_t bufferLen = dStrlen(CMDtext);
    char* buffer = (char*)consoleAlloc(bufferLen);
    dStrcpy(buffer, CMDtext + 1, bufferLen);
 

@@ -31,11 +31,11 @@
 /// of Swizzle and this swizzle can then be executed on buffers. The following 
 /// must be true of the buffer size:
 ///    size % ( sizeof( T ) * mapLength ) == 0
-template<class T, dsize_t mapLength>
+template<class T, size_t mapLength>
 class Swizzle
 {
 private:
-   /// This is an array from 0..n. Each entry in the array is a dsize_t with values
+   /// This is an array from 0..n. Each entry in the array is a size_t with values
    /// in the range 0..n. Each value in the range 0..n can occur any number of times.
    /// 
    /// For example:
@@ -47,12 +47,12 @@ private:
    ///
    /// If the map { 3, 0, 2, 2 } was applied to the set, the result would be:
    /// { 'd', 'a', 'c', 'c' }
-   dsize_t mMap[mapLength];
+   size_t mMap[mapLength];
 
 public:
    /// Construct a swizzle
    /// @see Swizzle::mMap
-   Swizzle( const dsize_t *map );
+   Swizzle( const size_t *map );
 
    virtual ~Swizzle(){}
 
@@ -62,7 +62,7 @@ public:
    ///
    /// @param  memory   Pointer to the start of the buffer to swizzle
    /// @param  size     Size of the buffer
-   virtual void InPlace( void *memory, const dsize_t size ) const;
+   virtual void InPlace( void *memory, const size_t size ) const;
 
    /// This method copies the data from source to destination while applying the
    /// re-ordering. This method is, in the non-specalized case, O(N^2) where N
@@ -71,19 +71,19 @@ public:
    /// @param  destination The destination of the swizzled data
    /// @param  source      The source data to be swizzled
    /// @param  size        Size of the source and destination buffers.
-   virtual void ToBuffer( void *destination, const void *source, const dsize_t size ) const;
+   virtual void ToBuffer( void *destination, const void *source, const size_t size ) const;
 };
 
 // Null swizzle
-template<class T, dsize_t mapLength>
+template<class T, size_t mapLength>
 class NullSwizzle : public Swizzle<T, mapLength>
 {
 public:
-   NullSwizzle( const dsize_t *map = NULL ) : Swizzle<T, mapLength>( map ) {};
+   NullSwizzle( const size_t *map = NULL ) : Swizzle<T, mapLength>( map ) {};
 
-   virtual void InPlace( void *memory, const dsize_t size ) const {}
+   virtual void InPlace( void *memory, const size_t size ) const {}
 
-   virtual void ToBuffer( void *destination, const void *source, const dsize_t size ) const
+   virtual void ToBuffer( void *destination, const void *source, const size_t size ) const
    {
       dMemcpy( destination, source, size );
    }
@@ -106,17 +106,17 @@ namespace Swizzles
 
 //------------------------------------------------------------------------------
 
-template<class T, dsize_t mapLength>
-Swizzle<T, mapLength>::Swizzle( const dsize_t *map )
+template<class T, size_t mapLength>
+Swizzle<T, mapLength>::Swizzle( const size_t *map )
 {
    if( map != NULL )
-      dMemcpy( mMap, map, sizeof( dsize_t ) * mapLength );
+      dMemcpy( mMap, map, sizeof( size_t ) * mapLength );
 }
 
 //------------------------------------------------------------------------------
 
-template<class T, dsize_t mapLength>
-inline void Swizzle<T, mapLength>::ToBuffer( void *destination, const void *source, const dsize_t size ) const
+template<class T, size_t mapLength>
+inline void Swizzle<T, mapLength>::ToBuffer( void *destination, const void *source, const size_t size ) const
 {
    // TODO: OpenMP?
    AssertFatal( size % ( sizeof( T ) * mapLength ) == 0, "Bad buffer size for swizzle, see docs." );
@@ -136,8 +136,8 @@ inline void Swizzle<T, mapLength>::ToBuffer( void *destination, const void *sour
 
 //------------------------------------------------------------------------------
 
-template<class T, dsize_t mapLength>
-inline void Swizzle<T, mapLength>::InPlace( void *memory, const dsize_t size ) const
+template<class T, size_t mapLength>
+inline void Swizzle<T, mapLength>::InPlace( void *memory, const size_t size ) const
 {
    // Just in case the inliner messes up the FrameTemp scoping (not sure if it would) -patw
    {

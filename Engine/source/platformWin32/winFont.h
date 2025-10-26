@@ -54,7 +54,7 @@ public:
     virtual PlatformFont::CharInfo &getCharInfo(const UTF16 ch) const;
     virtual PlatformFont::CharInfo &getCharInfo(const UTF8 *str) const;
 
-    virtual bool create(const char *name, dsize_t size, U32 charset = TGE_ANSI_CHARSET);
+    virtual bool create(const char *name, size_t size, U32 charset = TGE_ANSI_CHARSET);
 };
 
 #endif // _WINFONT_H_

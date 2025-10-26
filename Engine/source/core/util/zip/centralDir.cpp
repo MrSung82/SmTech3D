@@ -177,7 +177,7 @@ bool CentralDir::write(Stream *stream)
 void CentralDir::setFileComment(const char *comment)
 {
    SAFE_DELETE_ARRAY(mFileComment);
-   dsize_t commentLen = dStrlen(comment) + 1;
+   size_t commentLen = dStrlen(comment) + 1;
    mFileComment = new char [commentLen];
    dStrcpy(mFileComment, comment, commentLen);
 }

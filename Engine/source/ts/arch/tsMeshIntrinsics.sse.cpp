@@ -25,7 +25,7 @@
 #include "ts/tsMeshIntrinsics.h"
 #include <xmmintrin.h>
 
-void zero_vert_normal_bulk_SSE(const dsize_t count, U8 * __restrict const outPtr, const dsize_t outStride)
+void zero_vert_normal_bulk_SSE(const size_t count, U8 * __restrict const outPtr, const size_t outStride)
 {
    // A U8 * version of the in/out pointer
    char *outData = reinterpret_cast<char *>(outPtr);

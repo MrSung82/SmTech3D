@@ -246,7 +246,7 @@ public:
    bool read(Stream& io_rStream);
    bool write(Stream& io_rStream) const;
 
-   template<class T, dsize_t mapLength>
+   template<class T, size_t mapLength>
    void swizzle(const Swizzle<T,mapLength> *s);
 
    static Vector<Registration>   sRegistrations;
@@ -322,7 +322,7 @@ inline const U8* GBitmap::getAddress(const S32 in_x, const S32 in_y, const U32 m
    return (getBits(mipLevel) + ((in_y * getWidth(mipLevel)) + in_x) * mBytesPerPixel);
 }
 
-template<class T, dsize_t mapLength>
+template<class T, size_t mapLength>
 void GBitmap::swizzle(const Swizzle<T,mapLength> *s )
 {
    const U32 memSize = getWidth() * getHeight() * mBytesPerPixel;

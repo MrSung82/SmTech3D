@@ -32,7 +32,7 @@
 
 //------------------------------------------------------------------------------
 
-PlatformFont* createPlatformFont( const char* name, dsize_t size, U32 charset )
+PlatformFont* createPlatformFont( const char* name, size_t size, U32 charset )
 {
    PlatformFont* pFont = new OSXFont();
    
@@ -79,7 +79,7 @@ OSXFont::~OSXFont()
 
 //------------------------------------------------------------------------------
 
-bool OSXFont::create( const char* name, dsize_t size, U32 charset )
+bool OSXFont::create( const char* name, size_t size, U32 charset )
 {
    // Sanity!
    AssertFatal( name != NULL, "Cannot create a NULL font name." );

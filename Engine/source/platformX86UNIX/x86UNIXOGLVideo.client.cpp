@@ -40,7 +40,7 @@ bool InitOpenGL()
 
    // Get the video settings from the prefs:
    const char* resString = Con::getVariable( "$pref::Video::resolution" );
-   dsize_t tempBufLen = dStrlen(resString) + 1;
+   size_t tempBufLen = dStrlen(resString) + 1;
    char* tempBuf = new char[tempBufLen];
    dStrcpy( tempBuf, resString, tempBufLen );
    char* temp = dStrtok( tempBuf, " x\0" );

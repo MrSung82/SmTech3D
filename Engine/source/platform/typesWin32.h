@@ -78,9 +78,9 @@ typedef double             F64;     ///< Compiler independent 64-bit float
 // be if/def'ed in the future
 
 #ifdef _WIN64
-typedef unsigned long long  dsize_t;
+typedef unsigned long long  size_t;
 #else
-typedef unsigned int  dsize_t;
+typedef unsigned int  size_t;
 #endif // _WIN64
 
 typedef const char* StringTableEntry;

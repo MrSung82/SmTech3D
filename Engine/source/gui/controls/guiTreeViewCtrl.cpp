@@ -445,7 +445,7 @@ U32 GuiTreeViewCtrl::Item::getDisplayTextLength()
             return dStrlen( "(none)" );
       }
 
-      dsize_t len = 0;
+      size_t len = 0;
       if( mState.test( ShowObjectId ) )
          len += dStrlen( obj->getIdString() ) + 2; // '<id>: '
       if( mState.test( ShowClassName ) )
@@ -628,7 +628,7 @@ void GuiTreeViewCtrl::Item::getTooltipText(U32 bufLen, char *buf)
          if(mParentControl->isMethod(method.c_str()))
          {
             const char* tooltip = Con::executef( mParentControl, method.c_str(), pObject->getIdString() );
-            dsize_t len = dStrlen(buf);
+            size_t len = dStrlen(buf);
             S32 newBufLen = bufLen-len;
             if(dStrlen(tooltip) > 0 && newBufLen > 0)
             {

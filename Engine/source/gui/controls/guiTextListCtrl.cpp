@@ -199,7 +199,7 @@ void GuiTextListCtrl::onRenderCell(Point2I offset, Point2I cell, bool selected, 
       const char *nextCol = dStrchr(text, '\t');
       if(mColumnOffsets[index] >= 0)
       {
-         dsize_t slen;
+         size_t slen;
          if(nextCol)
             slen = nextCol - text;
          else

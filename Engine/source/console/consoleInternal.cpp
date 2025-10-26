@@ -279,7 +279,7 @@ void Dictionary::deleteVariables(const char *varString)
 
 U32 HashPointer(StringTableEntry ptr)
 {
-   return (U32)(((dsize_t)ptr) >> 2);
+   return (U32)(((size_t)ptr) >> 2);
 }
 
 Dictionary::Entry *Dictionary::lookup(StringTableEntry name)
@@ -1985,7 +1985,7 @@ DefineEngineFunction(getPackageList, const char*, (), ,
       return "";
 
    // Determine size of return buffer
-   dsize_t buffersize = 0;
+   size_t buffersize = 0;
    for (U32 i = 0; i < Namespace::getActivePackagesCount(); ++i)
    {
       buffersize += dStrlen(Namespace::getActivePackage(i)) + 1;

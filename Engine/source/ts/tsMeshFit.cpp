@@ -262,7 +262,7 @@ void MeshFit::addSourceMesh( const TSShape::Object& obj, const TSMesh* mesh )
          for ( S32 j = 2; j < draw.numElements; j++ )
          {
             *nextIdx = idx2;
-            nextIdx = (U32*) ( (dsize_t)nextIdx ^ (dsize_t)&idx0 ^ (dsize_t)&idx1);
+            nextIdx = (U32*) ( (size_t)nextIdx ^ (size_t)&idx0 ^ (size_t)&idx1);
             idx2 = mesh->mIndices[draw.start + j];
             if ( idx0 == idx1 || idx0 == idx2 || idx1 == idx2 )
                continue;

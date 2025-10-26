@@ -318,7 +318,7 @@ void SFXFMODProvider::init()
 
    // TODO: FMOD_Memory_Initialize
 #ifdef TORQUE_OS_XENON
-   const dsize_t memSz = 5 * 1024 * 1024;
+   const size_t memSz = 5 * 1024 * 1024;
    void *memBuffer = XPhysicalAlloc( memSz, MAXULONG_PTR, 0, PAGE_READWRITE );
    mFMod.FMOD_Memory_Initialize( memBuffer, memSz, FMOD_MEMORY_ALLOCCALLBACK(NULL), FMOD_MEMORY_REALLOCCALLBACK(NULL), FMOD_MEMORY_FREECALLBACK(NULL) );
 #endif

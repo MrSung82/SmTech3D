@@ -608,7 +608,7 @@ bool ParticleEmitterData::onAdd()
 
       // First we parse particleString into a list of particle name tokens 
       Vector<char*> dataBlocks(__FILE__, __LINE__);
-      dsize_t tokLen = dStrlen(particleString) + 1;
+      size_t tokLen = dStrlen(particleString) + 1;
       char* tokCopy = new char[tokLen];
       dStrcpy(tokCopy, particleString, tokLen);
 

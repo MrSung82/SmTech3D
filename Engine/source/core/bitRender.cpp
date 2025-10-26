@@ -65,7 +65,7 @@ void BitRender::render_strips(const U8 * draw, S32 numDraw, S32 szDraw, const U1
       while (icurrent<iend)
       {
          *nextPt = vv2;
-         nextPt = (const Point2I**)( (dsize_t)nextPt ^ (dsize_t)&vv0 ^ (dsize_t)&vv1 );
+         nextPt = (const Point2I**)( (size_t)nextPt ^ (size_t)&vv0 ^ (size_t)&vv1 );
          vv2 = points + *(icurrent++);
 
          // skip degenerate triangles...

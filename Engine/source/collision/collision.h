@@ -79,7 +79,7 @@ public:
    };
 
 protected:
-   dsize_t mCount;
+   size_t mCount;
    Collision mCollision[MaxCollisions];
    F32 mT;
    // MaxHeight is currently only set by the extrudedPolyList
@@ -89,7 +89,7 @@ protected:
 
 public:
    // Constructor
-   CollisionList( /* const dsize_t reserveSize = MaxCollisions */ ) :
+   CollisionList( /* const size_t reserveSize = MaxCollisions */ ) :
       mCount( 0 ), mT( 0.0f ), mMaxHeight( 0.0f )
    {
 
@@ -100,13 +100,13 @@ public:
    F32 getTime() const { return mT; }
    F32 getMaxHeight() const { return mMaxHeight; }
 
-   const Collision &operator[] ( const dsize_t idx ) const
+   const Collision &operator[] ( const size_t idx ) const
    {
       AssertFatal( idx < mCount, "Out of bounds index." );
       return mCollision[idx];
    }
 
-   Collision &operator[] ( const dsize_t idx )
+   Collision &operator[] ( const size_t idx )
    {
       AssertFatal( idx < mCount, "Out of bounds index." );
       return mCollision[idx];

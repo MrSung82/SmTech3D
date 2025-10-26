@@ -83,7 +83,7 @@ XftFont *loadFont(const char *name, S32 size, Display *display)
 }
 
 
-//GOldFont* createFont(const char *name, dsize_t size, U32 charset)
+//GOldFont* createFont(const char *name, size_t size, U32 charset)
 //{
 //  Display *display = XOpenDisplay(getenv("DISPLAY"));
 //  int screen;
@@ -186,7 +186,7 @@ XftFont *loadFont(const char *name, S32 size, Display *display)
 
 
 // XA: New class for the unix unicode font
-PlatformFont *createPlatformFont(const char *name, dsize_t size, U32 charset /* = TGE_ANSI_CHARSET */)
+PlatformFont *createPlatformFont(const char *name, size_t size, U32 charset /* = TGE_ANSI_CHARSET */)
 {
   PlatformFont *retFont = new x86UNIXFont;
 
@@ -204,7 +204,7 @@ x86UNIXFont::~x86UNIXFont()
 {}
 
 
-bool x86UNIXFont::create(const char *name, dsize_t size, U32 charset)
+bool x86UNIXFont::create(const char *name, size_t size, U32 charset)
 {
   Display *display = XOpenDisplay(getenv("DISPLAY"));
   if (display == NULL)

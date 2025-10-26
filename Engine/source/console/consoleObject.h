@@ -875,14 +875,14 @@ public:
    /// @param  in_pFieldDocs     Usage string for this field. @see console_autodoc
    static void addField(const char*   in_pFieldname,
       const U32     in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       const U32     in_elementCount = 1,
       const char*   in_pFieldDocs   = NULL,
       U32 flags = 0 );
 
    static void addField(const char*   in_pFieldname,
       const U32     in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       AbstractClassRep::WriteDataNotify in_writeDataFn,
       const U32     in_elementCount = 1,
       const char*   in_pFieldDocs = NULL,
@@ -896,13 +896,13 @@ public:
    /// @param  in_pFieldDocs  Usage string for this field. @see console_autodoc
    static void addField(const char*   in_pFieldname,
       const U32     in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       const char*   in_pFieldDocs,
       U32 flags = 0 );
 
    static void addField(const char*   in_pFieldname,
       const U32     in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       AbstractClassRep::WriteDataNotify in_writeDataFn,
       const char*   in_pFieldDocs,
       U32 flags = 0);
@@ -918,7 +918,7 @@ public:
    /// @see typeValidators.h
    static void addFieldV(const char*   in_pFieldname,
       const U32      in_fieldType,
-      const dsize_t  in_fieldOffset,
+      const size_t  in_fieldOffset,
       TypeValidator *v,
       const char *   in_pFieldDocs = NULL);
 
@@ -933,7 +933,7 @@ public:
    /// @param  in_pFieldDocs     Usage string for this field. @see console_autodoc
    static void addProtectedField(const char*   in_pFieldname,
       const U32     in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       AbstractClassRep::SetDataNotify in_setDataFn,
       AbstractClassRep::GetDataNotify in_getDataFn = &defaultProtectedGetFn,
       AbstractClassRep::WriteDataNotify in_writeDataFn = &defaultProtectedWriteFn,
@@ -943,7 +943,7 @@ public:
 
    static void addProtectedField(const char*  in_pFieldname,
       const U32 in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       AbstractClassRep::SetDataNotify in_setDataFn,
       AbstractClassRep::GetDataNotify in_getDataFn = &defaultProtectedGetFn,
       const U32 in_elementCount = 1,
@@ -960,7 +960,7 @@ public:
    /// @param  in_pFieldDocs  Usage string for this field. @see console_autodoc
    static void addProtectedField(const char*   in_pFieldname,
       const U32     in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       AbstractClassRep::SetDataNotify in_setDataFn,
       AbstractClassRep::GetDataNotify in_getDataFn = &defaultProtectedGetFn,
       AbstractClassRep::WriteDataNotify in_writeDataFn = &defaultProtectedWriteFn,
@@ -969,7 +969,7 @@ public:
 
    static void addProtectedField(const char*  in_pFieldname,
       const U32 in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       AbstractClassRep::SetDataNotify in_setDataFn,
       AbstractClassRep::GetDataNotify in_getDataFn = &defaultProtectedGetFn,
       const char* in_pFieldDocs = NULL,

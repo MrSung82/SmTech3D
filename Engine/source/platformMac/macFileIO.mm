@@ -779,8 +779,8 @@ static bool recurseDumpDirectories(const char *basePath, const char *subPath, Ve
    DIR *dip;
    struct dirent *d;
    
-   dsize_t trLen = basePath ? dStrlen(basePath) : 0;
-   dsize_t subtrLen = subPath ? dStrlen(subPath) : 0;
+   size_t trLen = basePath ? dStrlen(basePath) : 0;
+   size_t subtrLen = subPath ? dStrlen(subPath) : 0;
    char trail = trLen > 0 ? basePath[trLen - 1] : '\0';
    char subTrail = subtrLen > 0 ? subPath[subtrLen - 1] : '\0';
    

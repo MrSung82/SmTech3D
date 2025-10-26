@@ -167,7 +167,7 @@ bool guiAnimBitmapCtrl::ptSetFrameRanges(void *object, const char *index, const 
          pData->mCurFrameIndex = pData->mNumFrames;
       return true;
    }
-   dsize_t tokLen = dStrlen(data) + 1;
+   size_t tokLen = dStrlen(data) + 1;
    char* tokCopy = new char[tokLen];
    dStrcpy(tokCopy, data, tokLen);
 

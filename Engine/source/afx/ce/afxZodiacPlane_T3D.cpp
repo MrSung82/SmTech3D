@@ -40,7 +40,7 @@ void afxZodiacPlane::prepRenderImage(SceneRenderState* state)
   ri->renderDelegate.bind(this, &afxZodiacPlane::_renderZodiacPlane);
   ri->type = RenderPassManager::RIT_ObjectTranslucent;
   ri->translucentSort = true;
-  ri->defaultKey = (U32)(dsize_t)mDataBlock;
+  ri->defaultKey = (U32)(size_t)mDataBlock;
 
   if (false)
   {

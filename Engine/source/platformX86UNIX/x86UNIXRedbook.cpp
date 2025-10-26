@@ -101,7 +101,7 @@ void UnixRedBookDevice::setDeviceInfo(S32 deviceId, const char *deviceName)
 {
 #if !defined(__FreeBSD__)
    mDeviceId = deviceId;
-   dsize_t deviceNameLen = dStrlen(deviceName) + 1;
+   size_t deviceNameLen = dStrlen(deviceName) + 1;
    mDeviceName = new char[deviceNameLen];
    dStrcpy(mDeviceName, deviceName, deviceNameLen);
 #endif	// !defined(__FreeBSD__)

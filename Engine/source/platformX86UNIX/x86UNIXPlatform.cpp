@@ -8,5 +8,5 @@ bool Platform::openWebBrowser( const char* webAddress )
 #ifdef TORQUE_DEDICATED
 // XA: New class for the unix unicode font
 class PlatformFont;
-PlatformFont *createPlatformFont(const char *name, dsize_t size, U32 charset /* = TGE_ANSI_CHARSET */) { return NULL; }
+PlatformFont *createPlatformFont(const char *name, size_t size, U32 charset /* = TGE_ANSI_CHARSET */) { return NULL; }
 #endif

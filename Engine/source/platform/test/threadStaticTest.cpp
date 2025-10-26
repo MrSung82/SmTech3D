@@ -103,7 +103,7 @@ TEST(ThreadStatic, StressThreadStatic)
    // Spawn an instance
    TorqueThreadStaticListHandle testInstance = _TorqueThreadStaticReg::spawnThreadStaticsInstance();
 
-   static const dsize_t TEST_SIZE = 100000;
+   static const size_t TEST_SIZE = 100000;
 
    // What we are going to do in this test is to test some U32 static
    // performance. The test will be run TEST_SIZE times, and so first create

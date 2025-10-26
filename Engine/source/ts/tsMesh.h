@@ -188,7 +188,7 @@ public:
    {
    protected:
       U8 *base;
-      dsize_t vertSz;
+      size_t vertSz;
       U32 numElements;
 
       U32 colorOffset;
@@ -201,7 +201,7 @@ public:
       TSMeshVertexArray() : base(NULL), numElements(0), colorOffset(0), boneOffset(0), vertexDataReady(false), ownsData(false) {}
       virtual ~TSMeshVertexArray() { set(NULL, 0, 0, 0, 0); }
 
-      virtual void set(void *b, dsize_t s, U32 n, S32 inColorOffset, S32 inBoneOffset, bool nowOwnsData = true)
+      virtual void set(void *b, size_t s, U32 n, S32 inColorOffset, S32 inBoneOffset, bool nowOwnsData = true)
       {
          if (base && ownsData)
             dFree_aligned(base);
@@ -238,8 +238,8 @@ public:
       }
 
       U32 size() const { return numElements; }
-      dsize_t mem_size() const { return numElements * vertSz; }
-      dsize_t vertSize() const { return vertSz; }
+      size_t mem_size() const { return numElements * vertSz; }
+      size_t vertSize() const { return vertSz; }
       bool isReady() const { return vertexDataReady; }
       void setReady(bool r) { vertexDataReady = r; }
 
@@ -339,7 +339,7 @@ protected:
    Point3F mBillboardAxis;
 
    /// @name Convex Hull Data
-   /// Convex hulls are convex (no angles >= 180º) meshes used for collision
+   /// Convex hulls are convex (no angles >= 180) meshes used for collision
    /// @{
 
    Vector<Point3F> mPlaneNormals;

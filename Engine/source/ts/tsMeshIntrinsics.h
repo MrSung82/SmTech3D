@@ -29,9 +29,9 @@
 /// @param outPtr    Pointer to a TSMesh aligned vertex buffer
 /// @param outStride Size, in bytes, of one entry in the vertex buffer
 extern void (*zero_vert_normal_bulk)
-                          (const dsize_t count, 
+                          (const size_t count, 
                            U8 * __restrict const outPtr, 
-                           const dsize_t outStride);
+                           const size_t outStride);
 
 #endif
 

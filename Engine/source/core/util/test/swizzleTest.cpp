@@ -36,7 +36,7 @@ private:
 public:
    TestStruct( const S32 data = -1 ) : mData( data ), mIdx( smIdx++ ) {};
 
-   dsize_t Idx() const { return mIdx; }
+   size_t Idx() const { return mIdx; }
 
    U32 Data() const { return mData; }
    void Data(U32 val) { mData = val; }
@@ -56,7 +56,7 @@ TEST(Swizzle, Swizzle)
 
    //------------------------------------------------------------------------
    // No-switch test
-   dsize_t noSwzl4[] = { 0, 1, 2, 3 };
+   size_t noSwzl4[] = { 0, 1, 2, 3 };
    Swizzle<U8,4> noSwizzle4( noSwzl4 );
 
    noSwizzle4.InPlace( simpleTest, sizeof( simpleTest ) );
@@ -66,7 +66,7 @@ TEST(Swizzle, Swizzle)
 
    //------------------------------------------------------------------------
    // No-brainer RGBA->BGRA test
-   dsize_t bgraSwzl[] = { 2, 1, 0, 3 };
+   size_t bgraSwzl[] = { 2, 1, 0, 3 };
    Swizzle<U8,4> bgraSwizzle( bgraSwzl );
 
    U8 bgraTest[] = { 2, 1, 0, 3 };

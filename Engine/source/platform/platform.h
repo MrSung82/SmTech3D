@@ -498,8 +498,8 @@ inline void destructInPlace(T* p)
 #  define TORQUE_TMM_ARGS_DECL   , const char* fileName, const U32 lineNum
 #  define TORQUE_TMM_ARGS        , fileName, lineNum
 #  define TORQUE_TMM_LOC         , __FILE__, __LINE__
-   extern void* FN_CDECL operator new(dsize_t size, const char*, const U32);
-   extern void* FN_CDECL operator new[](dsize_t size, const char*, const U32);
+   extern void* FN_CDECL operator new(size_t size, const char*, const U32);
+   extern void* FN_CDECL operator new[](size_t size, const char*, const U32);
    extern void  FN_CDECL operator delete(void* ptr);
    extern void  FN_CDECL operator delete[](void* ptr);
 #  define _new new(__FILE__, __LINE__)
@@ -513,15 +513,15 @@ inline void destructInPlace(T* p)
 #define dMalloc(x) dMalloc_r(x, __FILE__, __LINE__)
 #define dRealloc(x, y) dRealloc_r(x, y, __FILE__, __LINE__)
 
-extern void  setBreakAlloc(dsize_t);
+extern void  setBreakAlloc(size_t);
 extern void  setMinimumAllocUnit(U32);
-extern void* dMalloc_r(dsize_t in_size, const char*, const dsize_t);
+extern void* dMalloc_r(size_t in_size, const char*, const size_t);
 extern void  dFree(void* in_pFree);
-extern void* dRealloc_r(void* in_pResize, dsize_t in_size, const char*, const dsize_t);
-extern void* dRealMalloc(dsize_t);
+extern void* dRealloc_r(void* in_pResize, size_t in_size, const char*, const size_t);
+extern void* dRealMalloc(size_t);
 extern void  dRealFree(void*);
 
-extern void *dMalloc_aligned(dsize_t in_size, S32 alignment);
+extern void *dMalloc_aligned(size_t in_size, S32 alignment);
 extern void dFree_aligned(void *);
 
 
@@ -531,19 +531,19 @@ inline void dFree( const void* p )
 }
 
 // Helper function to copy one array into another of different type
-template<class T,class S> void dCopyArray(T *dst, const S *src, dsize_t size)
+template<class T,class S> void dCopyArray(T *dst, const S *src, size_t size)
 {
-   for (dsize_t i = 0; i < size; i++)
+   for (size_t i = 0; i < size; i++)
       dst[i] = (T)src[i];
 }
 
-extern void* dMemcpy(void *dst, const void *src, dsize_t size);
-extern void* dMemmove(void *dst, const void *src, dsize_t size);
-extern void* dMemset(void *dst, S32 c, dsize_t size);
-extern S32   dMemcmp(const void *ptr1, const void *ptr2, dsize_t size);
+extern void* dMemcpy(void *dst, const void *src, size_t size);
+extern void* dMemmove(void *dst, const void *src, size_t size);
+extern void* dMemset(void *dst, S32 c, size_t size);
+extern S32   dMemcmp(const void *ptr1, const void *ptr2, size_t size);
 
 // Special case of the above function when the arrays are the same type (use memcpy)
-template<class T> void dCopyArray(T *dst, const T *src, dsize_t size)
+template<class T> void dCopyArray(T *dst, const T *src, size_t size)
 {
    dMemcpy(dst, src, size * sizeof(T));
 }

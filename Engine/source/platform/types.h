@@ -43,6 +43,9 @@ typedef std::uint16_t      U16;     ///< Compiler independent Unsigned 16-bit sh
 typedef std::int32_t       S32;     ///< Compiler independent Signed 32-bit integer
 typedef std::uint32_t      U32;     ///< Compiler independent Unsigned 32-bit integer
 
+typedef std::int64_t       S64;
+typedef std::uint64_t      U64;
+
 typedef float              F32;     ///< Compiler independent 32-bit float
 typedef double             F64;     ///< Compiler independent 64-bit float
 
@@ -109,11 +112,8 @@ static const F32 F32_MAX = F32(3.402823466e+38F);                 ///< Constant 
 // Identify the compiler being used
 
 
-// Metrowerks CodeWarrior
-#if defined(__MWERKS__)
-#  include "platform/types.codewarrior.h"
 // Microsoft Visual C++/Visual.NET
-#elif defined(SMTECH_COMPILER_MSVC)
+#if defined(SMTECH_COMPILER_MSVC)
 #  include "platform/types.visualc.h"
 // GNU GCC
 #elif defined(__GNUC__)
@@ -121,6 +121,10 @@ static const F32 F32_MAX = F32(3.402823466e+38F);                 ///< Constant 
 #else
 #  error "Unknown Compiler"
 #endif
+
+#define FN_CDECL __cdecl            ///< Calling convention
+
+
 
 /// Integral type matching the host's memory address width.
 #ifdef TORQUE_CPU_X64

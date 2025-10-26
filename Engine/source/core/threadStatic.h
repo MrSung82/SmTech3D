@@ -53,7 +53,7 @@ public:
 
    virtual void *getMemInstPtr() = 0;
    virtual const void *getConstMemInstPtr() const = 0;
-   virtual const dsize_t getMemInstSize() const = 0;
+   virtual const size_t getMemInstSize() const = 0;
 
 #ifdef TORQUE_ENABLE_THREAD_STATIC_METRICS
    _TorqueThreadStatic *_chainHit() { mHitCount++; return this; }
@@ -181,7 +181,7 @@ protected:\
    virtual _TorqueThreadStatic *_createInstance() const { return new _##name##TorqueThreadStatic; } \
 public: \
    _##name##TorqueThreadStatic() : TorqueThreadStatic<type>( initalvalue ) {} \
-   virtual const dsize_t getMemInstSize() const { return sizeof( type ); } \
+   virtual const size_t getMemInstSize() const { return sizeof( type ); } \
    type &_cast() { return *reinterpret_cast<type *>( getMemInstPtr() ); } \
    const type &_const_cast() const { return *reinterpret_cast<const type *>( getConstMemInstPtr() ); } \
 }; \

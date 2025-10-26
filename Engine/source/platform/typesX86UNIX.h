@@ -47,7 +47,7 @@ typedef unsigned long long      U64;
 typedef float           	F32;
 typedef double          	F64;
 
-typedef unsigned int dsize_t;
+typedef unsigned int size_t;
 
 typedef const char* StringTableEntry;
 

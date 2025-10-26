@@ -438,7 +438,7 @@ protected:
    /// @param  in_pFieldDocs     Usage string for this field. @see console_autodoc
    static void addNetworkedField(const char*   in_pFieldname,
       const U32     in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       const U32     in_elementCount = 1,
       const char*   in_pFieldDocs = NULL,
       U32 flags = 0,
@@ -446,7 +446,7 @@ protected:
 
    static void addNetworkedField(const char*   in_pFieldname,
       const U32     in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       AbstractClassRep::WriteDataNotify in_writeDataFn,
       const U32     in_elementCount = 1,
       const char*   in_pFieldDocs = NULL,
@@ -461,14 +461,14 @@ protected:
    /// @param  in_pFieldDocs  Usage string for this field. @see console_autodoc
    static void addNetworkedField(const char*   in_pFieldname,
       const U32     in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       const char*   in_pFieldDocs,
       U32 flags = 0,
       U32 networkMask = 0);
 
    static void addNetworkedField(const char*   in_pFieldname,
       const U32     in_fieldType,
-      const dsize_t in_fieldOffset,
+      const size_t in_fieldOffset,
       AbstractClassRep::WriteDataNotify in_writeDataFn,
       const char*   in_pFieldDocs,
       U32 flags = 0,

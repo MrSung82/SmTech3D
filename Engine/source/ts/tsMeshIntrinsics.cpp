@@ -25,13 +25,13 @@
 #include "core/module.h"
 
 
-void (*zero_vert_normal_bulk)(const dsize_t count, U8 * __restrict const outPtr, const dsize_t outStride) = NULL;
+void (*zero_vert_normal_bulk)(const size_t count, U8 * __restrict const outPtr, const size_t outStride) = NULL;
 
 //------------------------------------------------------------------------------
 // Default C++ Implementations (pretty slow)
 //------------------------------------------------------------------------------
 
-void zero_vert_normal_bulk_C(const dsize_t count, U8 * __restrict const outPtr, const dsize_t outStride)
+void zero_vert_normal_bulk_C(const size_t count, U8 * __restrict const outPtr, const size_t outStride)
 {
    char *outData = reinterpret_cast<char *>(outPtr);
 

@@ -126,7 +126,7 @@ struct Header
 #endif
    Header *next;
    Header *prev;
-   dsize_t size;
+   size_t size;
    U32 flags;
 #ifdef TORQUE_DEBUG_GUARD
    #ifdef TORQUE_ENABLE_PROFILE_PATH
@@ -145,7 +145,7 @@ struct AllocatedHeader
 #endif
    Header *next;
    Header *prev;
-   dsize_t size;
+   size_t size;
    U32 flags;
 
 #ifdef TORQUE_DEBUG_GUARD
@@ -173,7 +173,7 @@ struct FreeHeader
 #endif
    Header *next;
    Header *prev;
-   dsize_t size;
+   size_t size;
    U32 flags;
 
 // since a free header has at least one cache line (16 bytes)
@@ -193,7 +193,7 @@ struct FreeHeader
 
 struct PageRecord
 {
-   dsize_t allocSize;
+   size_t allocSize;
    PageRecord *prevPage;
    Header *headerList;  // if headerList is NULL, this is a treeNode page
    void *basePtr;
@@ -323,7 +323,7 @@ static void memoryError()
    Platform::forceShutdown(-1);
 }
 
-PageRecord *allocPage(dsize_t pageSize)
+PageRecord *allocPage(size_t pageSize)
 {
    pageSize += sizeof(PageRecord);
    void* base = dRealMalloc(pageSize);
@@ -763,7 +763,7 @@ static void treeRemove(FreeHeader *hdr)
 #endif
 
 #if !defined(TORQUE_DISABLE_MEMORY_MANAGER)
-static FreeHeader *treeFindSmallestGreaterThan(dsize_t size)
+static FreeHeader *treeFindSmallestGreaterThan(size_t size)
 {
    TreeNode *bestMatch = NIL;
    TreeNode *walk = gFreeTreeRoot;
@@ -1197,7 +1197,7 @@ void disableLogging()
 //}
 
 #if !defined(TORQUE_DISABLE_MEMORY_MANAGER)
-static Header *allocMemPage(dsize_t pageSize)
+static Header *allocMemPage(size_t pageSize)
 {
    pageSize += sizeof(Header);
    if(pageSize < MinPageSize)
@@ -1267,7 +1267,7 @@ static bool gReentrantGuard = false;
 #endif
 
 #if !defined(TORQUE_DISABLE_MEMORY_MANAGER)
-static void* alloc(dsize_t size, bool array, const char* fileName, const U32 line)
+static void* alloc(size_t size, bool array, const char* fileName, const U32 line)
 {
    AssertFatal(size < MaxAllocationAmount, "Memory::alloc - tried to allocate > MaxAllocationAmount!");
 
@@ -1461,7 +1461,7 @@ static void free(void* mem, bool array)
 #endif
 
 #if !defined(TORQUE_DISABLE_MEMORY_MANAGER)
-static void* realloc(void* mem, dsize_t size, const char* fileName, const U32 line)
+static void* realloc(void* mem, size_t size, const char* fileName, const U32 line)
 {
    //validate();
    if (!size) {
@@ -1571,7 +1571,7 @@ static void* realloc(void* mem, dsize_t size, const char* fileName, const U32 li
 }
 #endif
 
-dsize_t getMemoryUsed()
+size_t getMemoryUsed()
 {
    U32 size = 0;
 
@@ -1669,7 +1669,7 @@ DefineEngineFunction( dumpMemSnapshot, void, ( const char* fileName ),,
 }
 #endif
 
-dsize_t getMemoryAllocated()
+size_t getMemoryAllocated()
 {
    return 0;
 }
@@ -1718,22 +1718,22 @@ void setMinimumAllocUnit(U32 allocUnit)
 
 // Manage our own memory, add overloaded memory operators and functions
 
-void* FN_CDECL operator new(dsize_t size, const char* fileName, const U32 line)
+void* FN_CDECL operator new(size_t size, const char* fileName, const U32 line)
 {
    return Memory::alloc(size, false, fileName, line);
 }
 
-void* FN_CDECL operator new[](dsize_t size, const char* fileName, const U32 line)
+void* FN_CDECL operator new[](size_t size, const char* fileName, const U32 line)
 {
    return Memory::alloc(size, true, fileName, line);
 }
 
-void* FN_CDECL operator new(dsize_t size)
+void* FN_CDECL operator new(size_t size)
 {
    return Memory::alloc(size, false, NULL, 0);
 }
 
-void* FN_CDECL operator new[](dsize_t size)
+void* FN_CDECL operator new[](size_t size)
 {
    return Memory::alloc(size, true, NULL, 0);
 }
@@ -1748,7 +1748,7 @@ void FN_CDECL operator delete[](void* mem)
    Memory::free(mem, true);
 }
 
-void* dMalloc_r(dsize_t in_size, const char* fileName, const dsize_t line)
+void* dMalloc_r(size_t in_size, const char* fileName, const size_t line)
 {
    return Memory::alloc(in_size, false, fileName, line);
 }
@@ -1758,7 +1758,7 @@ void dFree(void* in_pFree)
    Memory::free(in_pFree, false);
 }
 
-void* dRealloc_r(void* in_pResize, dsize_t in_size, const char* fileName, const dsize_t line)
+void* dRealloc_r(void* in_pResize, size_t in_size, const char* fileName, const size_t line)
 {
    return Memory::realloc(in_pResize, in_size, fileName, line);
 }
@@ -1776,7 +1776,7 @@ AFTER_MODULE_INIT( Sim )
 #else
 
 // Don't manage our own memory
-void* dMalloc_r(dsize_t in_size, const char* fileName, const dsize_t line)
+void* dMalloc_r(size_t in_size, const char* fileName, const size_t line)
 {
    return malloc(in_size);
 }
@@ -1786,7 +1786,7 @@ void dFree(void* in_pFree)
    free(in_pFree);
 }
 
-void* dRealloc_r(void* in_pResize, dsize_t in_size, const char* fileName, const dsize_t line)
+void* dRealloc_r(void* in_pResize, size_t in_size, const char* fileName, const size_t line)
 {
    return realloc(in_pResize,in_size);
 }

@@ -213,9 +213,9 @@ S32 dStrnatcasecmp(const nat_char* a, const nat_char* b) {
 //------------------------------------------------------------------------------
 // non-standard string functions
 
-char *dStrdup_r(const char *src, const char *fileName, dsize_t lineNumber)
+char *dStrdup_r(const char *src, const char *fileName, size_t lineNumber)
 {
-   dsize_t bufferLen = dStrlen(src) + 1;
+   size_t bufferLen = dStrlen(src) + 1;
    char *buffer = (char *) dMalloc_r(bufferLen, fileName, lineNumber);
    dStrcpy(buffer, src, bufferLen);
    return buffer;
@@ -262,7 +262,7 @@ const char* dStrichr( const char* str, char ch )
 // concatenates a list of src's onto the end of dst
 // the list of src's MUST be terminated by a NULL parameter
 // dStrcatl(dst, sizeof(dst), src1, src2, NULL);
-char* dStrcatl(char *dst, dsize_t dstSize, ...)
+char* dStrcatl(char *dst, size_t dstSize, ...)
 {
    const char* src = NULL;
    char *p = dst;
@@ -299,7 +299,7 @@ char* dStrcatl(char *dst, dsize_t dstSize, ...)
 // copy a list of src's into dst
 // the list of src's MUST be terminated by a NULL parameter
 // dStrccpyl(dst, sizeof(dst), src1, src2, NULL);
-char* dStrcpyl(char *dst, dsize_t dstSize, ...)
+char* dStrcpyl(char *dst, size_t dstSize, ...)
 {
    const char* src = NULL;
    char *p = dst;
@@ -384,7 +384,7 @@ char* dStrlwr(char *str)
 
 //------------------------------------------------------------------------------
 
-S32 dStrlcat(char *dst, const char *src, dsize_t dstSize)
+S32 dStrlcat(char *dst, const char *src, size_t dstSize)
 {
    //TODO: Do other platforms support strlcat in their libc
 #ifdef TORQUE_OS_MAC
@@ -414,7 +414,7 @@ S32 dStrlcat(char *dst, const char *src, dsize_t dstSize)
 #endif //TORQUE_OS_MAC
 }
 
-S32 dStrlcpy(char *dst, const char *src, dsize_t dstSize)
+S32 dStrlcpy(char *dst, const char *src, size_t dstSize)
 {
    //TODO: Do other platforms support strlcpy in their libc
 #ifdef TORQUE_OS_MAC

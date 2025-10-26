@@ -26,7 +26,7 @@
 #import <mm_malloc.h>
 
 //--------------------------------------
-void* dRealMalloc(dsize_t in_size)
+void* dRealMalloc(size_t in_size)
 {
    return malloc(in_size);
 }
@@ -38,7 +38,7 @@ void dRealFree(void* in_pFree)
    free(in_pFree);
 }
 
-void *dMalloc_aligned(dsize_t in_size, int alignment)
+void *dMalloc_aligned(size_t in_size, int alignment)
 {
    return _mm_malloc(in_size, alignment);
 }
@@ -48,26 +48,26 @@ void dFree_aligned(void* p)
    return _mm_free(p);
 }
 
-void* dMemcpy(void *dst, const void *src, dsize_t size)
+void* dMemcpy(void *dst, const void *src, size_t size)
 {
    return memcpy(dst,src,size);
 }
 
 
 //--------------------------------------
-void* dMemmove(void *dst, const void *src, dsize_t size)
+void* dMemmove(void *dst, const void *src, size_t size)
 {
    return memmove(dst,src,size);
 }
 
 //--------------------------------------
-void* dMemset(void *dst, int c, dsize_t size)
+void* dMemset(void *dst, int c, size_t size)
 {
    return memset(dst,c,size);
 }
 
 //--------------------------------------
-int dMemcmp(const void *ptr1, const void *ptr2, dsize_t len)
+int dMemcmp(const void *ptr1, const void *ptr2, size_t len)
 {
    return(memcmp(ptr1, ptr2, len));
 }

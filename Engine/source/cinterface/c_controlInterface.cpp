@@ -232,7 +232,7 @@ extern "C" {
 
    void torque_setexecutablepath(const char* directory)
    {
-      dsize_t pathLen = dStrlen(directory) + 1;
+      size_t pathLen = dStrlen(directory) + 1;
       gExecutablePath = new char[pathLen];
       dStrcpy(gExecutablePath, directory, pathLen);
    }

@@ -451,7 +451,7 @@ void ConsoleObject::endArray( const char *arrayName )
 
 void ConsoleObject::addField(const char*  in_pFieldname,
                        const U32 in_fieldType,
-                       const dsize_t in_fieldOffset,
+                       const size_t in_fieldOffset,
                        const char* in_pFieldDocs,
                        U32 flags )
 {
@@ -466,7 +466,7 @@ void ConsoleObject::addField(const char*  in_pFieldname,
 
 void ConsoleObject::addField(const char*  in_pFieldname,
    const U32 in_fieldType,
-   const dsize_t in_fieldOffset,
+   const size_t in_fieldOffset,
    AbstractClassRep::WriteDataNotify in_writeDataFn,
    const char* in_pFieldDocs,
    U32 flags)
@@ -483,7 +483,7 @@ void ConsoleObject::addField(const char*  in_pFieldname,
 
 void ConsoleObject::addField(const char*  in_pFieldname,
    const U32 in_fieldType,
-   const dsize_t in_fieldOffset,
+   const size_t in_fieldOffset,
    const U32 in_elementCount,
    const char* in_pFieldDocs,
    U32 flags)
@@ -499,7 +499,7 @@ void ConsoleObject::addField(const char*  in_pFieldname,
 
 void ConsoleObject::addField(const char*  in_pFieldname,
    const U32 in_fieldType,
-   const dsize_t in_fieldOffset,
+   const size_t in_fieldOffset,
    AbstractClassRep::WriteDataNotify in_writeDataFn,
    const U32 in_elementCount,
    const char* in_pFieldDocs,
@@ -531,7 +531,7 @@ void ConsoleObject::addField(const char*  in_pFieldname,
 
 void ConsoleObject::addProtectedField(const char*  in_pFieldname,
    const U32 in_fieldType,
-   const dsize_t in_fieldOffset,
+   const size_t in_fieldOffset,
    AbstractClassRep::SetDataNotify in_setDataFn,
    AbstractClassRep::GetDataNotify in_getDataFn,
    const char* in_pFieldDocs,
@@ -551,7 +551,7 @@ void ConsoleObject::addProtectedField(const char*  in_pFieldname,
 
 void ConsoleObject::addProtectedField(const char*  in_pFieldname,
    const U32 in_fieldType,
-   const dsize_t in_fieldOffset,
+   const size_t in_fieldOffset,
    AbstractClassRep::SetDataNotify in_setDataFn,
    AbstractClassRep::GetDataNotify in_getDataFn,
    AbstractClassRep::WriteDataNotify in_writeDataFn,
@@ -572,7 +572,7 @@ void ConsoleObject::addProtectedField(const char*  in_pFieldname,
 
 void ConsoleObject::addProtectedField(const char*  in_pFieldname,
    const U32 in_fieldType,
-   const dsize_t in_fieldOffset,
+   const size_t in_fieldOffset,
    AbstractClassRep::SetDataNotify in_setDataFn,
    AbstractClassRep::GetDataNotify in_getDataFn,
    const U32 in_elementCount,
@@ -592,7 +592,7 @@ void ConsoleObject::addProtectedField(const char*  in_pFieldname,
 }
 void ConsoleObject::addProtectedField(const char*  in_pFieldname,
    const U32 in_fieldType,
-   const dsize_t in_fieldOffset,
+   const size_t in_fieldOffset,
    AbstractClassRep::SetDataNotify in_setDataFn,
    AbstractClassRep::GetDataNotify in_getDataFn,
    AbstractClassRep::WriteDataNotify in_writeDataFn,
@@ -626,7 +626,7 @@ void ConsoleObject::addProtectedField(const char*  in_pFieldname,
 
 void ConsoleObject::addFieldV(const char*  in_pFieldname,
                        const U32 in_fieldType,
-                       const dsize_t in_fieldOffset,
+                       const size_t in_fieldOffset,
                        TypeValidator *v,
                        const char* in_pFieldDocs)
 {

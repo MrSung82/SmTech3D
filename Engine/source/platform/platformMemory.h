@@ -50,8 +50,8 @@ namespace Memory
    void        ensureAllFreed();
    void        dumpUnflaggedAllocs(const char *file, EFlag flag = FLAG_Debug );
    S32         countUnflaggedAllocs(const char *file, S32 *outUnflaggedRealloc = NULL, EFlag flag = FLAG_Debug );
-   dsize_t     getMemoryUsed();
-   dsize_t     getMemoryAllocated();
+   size_t     getMemoryUsed();
+   size_t     getMemoryAllocated();
    void        getMemoryInfo( void* ptr, Info& info );
    void        validate();
 }

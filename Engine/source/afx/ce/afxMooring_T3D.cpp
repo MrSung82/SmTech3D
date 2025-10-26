@@ -42,7 +42,7 @@ void afxMooring::prepRenderImage(SceneRenderState* state)
   ri->renderDelegate.bind(this, &afxMooring::_renderAxisLines);
   ri->type = RenderPassManager::RIT_ObjectTranslucent;
   ri->translucentSort = true;
-  ri->defaultKey = (U32)(dsize_t)mDataBlock;
+  ri->defaultKey = (U32)(size_t)mDataBlock;
   ri->sortDistSq = getWorldBox().getSqDistanceToPoint( state->getCameraPosition() );      
   state->getRenderPass()->addInst(ri);
 }

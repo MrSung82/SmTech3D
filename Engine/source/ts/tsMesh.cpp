@@ -410,7 +410,7 @@ bool TSMesh::buildPolyList( S32 frame, AbstractPolyList *polyList, U32 &surfaceK
          {
             *nextIdx = idx2;
             // nextIdx = (j%2)==0 ? &idx0 : &idx1;
-            nextIdx = (U32*) ( (dsize_t)nextIdx ^ (dsize_t)&idx0 ^ (dsize_t)&idx1);
+            nextIdx = (U32*) ( (size_t)nextIdx ^ (size_t)&idx0 ^ (size_t)&idx1);
             idx2 = base + mIndices[start + j];
             if ( idx0 == idx1 || idx0 == idx2 || idx1 == idx2 )
                continue;
@@ -503,7 +503,7 @@ bool TSMesh::getFeatures( S32 frame, const MatrixF& mat, const VectorF&, ConvexF
          for ( S32 j = 2; j < draw.numElements; j++ )
          {
             *nextIdx = idx2;
-            nextIdx = (U32*) ( (dsize_t)nextIdx ^ (dsize_t)&idx0 ^ (dsize_t)&idx1);
+            nextIdx = (U32*) ( (size_t)nextIdx ^ (size_t)&idx0 ^ (size_t)&idx1);
             idx2 = base + mIndices[start + j];
             if ( idx0 == idx1 || idx0 == idx2 || idx1 == idx2 )
                continue;
@@ -693,10 +693,10 @@ bool TSMesh::castRay( S32 frame, const Point3F & start, const Point3F & end, Ray
       if ( sgn * dot1 >= 0 )
       {
          sgn *= -1.0f;
-         pnum = (F32*) ((dsize_t)pnum ^ (dsize_t)&endNum ^ (dsize_t)&startNum);
-         pden = (F32*) ((dsize_t)pden ^ (dsize_t)&endDen ^ (dsize_t)&startDen);
-         pplane = (S32*) ((dsize_t)pplane ^ (dsize_t)&tmpPlane ^ (dsize_t)&curPlane);
-         pfound = (bool*) ((dsize_t)pfound ^ (dsize_t)&tmpFound ^ (dsize_t)&found);
+         pnum = (F32*) ((size_t)pnum ^ (size_t)&endNum ^ (size_t)&startNum);
+         pden = (F32*) ((size_t)pden ^ (size_t)&endDen ^ (size_t)&startDen);
+         pplane = (S32*) ((size_t)pplane ^ (size_t)&tmpPlane ^ (size_t)&curPlane);
+         pfound = (bool*) ((size_t)pfound ^ (size_t)&tmpFound ^ (size_t)&found);
       }
 
       bool noCollision = num * endDen * sgn < endNum * den * sgn && num * startDen * sgn < startNum * den * sgn;
@@ -835,7 +835,7 @@ bool TSMesh::castRayRendered( S32 frame, const Point3F & start, const Point3F & 
          {
             *nextIdx = idx2;
             // nextIdx = (j%2)==0 ? &idx0 : &idx1;
-            nextIdx = (U32*) ( (dsize_t)nextIdx ^ (dsize_t)&idx0 ^ (dsize_t)&idx1);
+            nextIdx = (U32*) ( (size_t)nextIdx ^ (size_t)&idx0 ^ (size_t)&idx1);
             idx2 = mIndices[drawStart + j];
             if ( idx0 == idx1 || idx0 == idx2 || idx1 == idx2 )
                continue;
@@ -981,7 +981,7 @@ bool TSMesh::buildConvexHull()
             {
                *nextIdx = idx2;
 //               nextIdx = (j%2)==0 ? &idx0 : &idx1;
-               nextIdx = (U32*) ( (dsize_t)nextIdx ^ (dsize_t)&idx0 ^ (dsize_t)&idx1 );
+               nextIdx = (U32*) ( (size_t)nextIdx ^ (size_t)&idx0 ^ (size_t)&idx1 );
                idx2 = mIndices[start + j] + firstVert;
                if ( addToHull( idx0, idx1, idx2 ) && frame == 0 )
 				   mPlaneMaterials.push_back( draw.matIndex & TSDrawPrimitive::MaterialMask );
@@ -2008,7 +2008,7 @@ void TSMesh::convertToTris(	const TSDrawPrimitive *primitivesIn,
          for ( S32 j = 2; j < numElements; j++ )
          {
             *nextIdx = idx2;
-            nextIdx = (U32*) ( (dsize_t)nextIdx ^ (dsize_t)&idx0 ^ (dsize_t)&idx1);
+            nextIdx = (U32*) ( (size_t)nextIdx ^ (size_t)&idx0 ^ (size_t)&idx1);
             idx2 = indicesIn[start + j];
             if ( idx0 == idx1 || idx1 == idx2 || idx2 == idx0 )
                continue;
@@ -2037,7 +2037,7 @@ void unwindStrip( const S32 * indices, S32 numElements, Vector<S32> &triIndices 
    for ( S32 j = 2; j < numElements; j++ )
    {
       *nextIdx = idx2;
-      nextIdx = (U32*) ( (dsize_t)nextIdx ^ (dsize_t)&idx0 ^ (dsize_t)&idx1);
+      nextIdx = (U32*) ( (size_t)nextIdx ^ (size_t)&idx0 ^ (size_t)&idx1);
       idx2 = indices[j];
       if ( idx0 == idx1 || idx1 == idx2 || idx2 == idx0 )
          continue;

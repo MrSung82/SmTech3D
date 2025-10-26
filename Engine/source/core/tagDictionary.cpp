@@ -61,7 +61,7 @@ static inline S32 hashId(S32 id, S32 tsize)
 
 static inline S32 hashDefine(StringTableEntry define, S32 tsize)
 {
-   return ((S32)((dsize_t)define) >> 2) % tsize;
+   return ((S32)((size_t)define) >> 2) % tsize;
 }
 
 //------------------------------------------------------------------------------
