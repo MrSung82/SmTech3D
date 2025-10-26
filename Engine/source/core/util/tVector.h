@@ -64,9 +64,9 @@ template<class T>
 class Vector
 {
   protected:
-   U32 mElementCount; ///< Number of elements currently in the Vector.
-   U32 mArraySize;    ///< Number of elements allocated for the Vector.
-   T*  mArray;        ///< Pointer to the Vector elements.
+   T* mArray{};        ///< Pointer to the Vector elements.
+   U32 mElementCount{}; ///< Number of elements currently in the Vector.
+   U32 mArraySize{};    ///< Number of elements allocated for the Vector.
 
 #ifdef TORQUE_DEBUG_GUARD
    const char* mFileAssociation;
