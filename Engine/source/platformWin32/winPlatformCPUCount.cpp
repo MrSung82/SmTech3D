@@ -23,7 +23,7 @@
 
 #include "platform/platform.h"
 
-#if defined( TORQUE_OS_WIN )
+#if defined( SMTECH_OS_WIN )
 
 #include "platform/platformCPUCount.h"
 #include <windows.h>

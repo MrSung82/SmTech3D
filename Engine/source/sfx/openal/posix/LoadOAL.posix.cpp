@@ -36,7 +36,7 @@ ALboolean LoadOAL10Library(char *szOALFullPathName, LPOPENALFNTABLE lpOALFnTable
    if (szOALFullPathName)
       openal_library = dlopen(szOALFullPathName, RTLD_LAZY);
    else
-   #ifdef TORQUE_OS_MAC
+   #ifdef SMTECH_OS_MAC
       openal_library = dlopen("libopenal.dylib", RTLD_LAZY);
    #else
       openal_library = dlopen("libopenal.so", RTLD_LAZY);

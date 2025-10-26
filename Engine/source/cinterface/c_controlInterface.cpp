@@ -28,7 +28,7 @@
 #include "windowManager/platformWindow.h"
 #include "windowManager/platformWindowMgr.h"
 
-#ifdef TORQUE_OS_WIN
+#ifdef SMTECH_OS_WIN
 #include "windowManager/win32/win32Window.h"
 #include "windowManager/win32/winDispatch.h"
 extern void createFontInit(void);
@@ -171,7 +171,7 @@ extern "C" {
          PlatformWindowManager::get()->getFirstWindow()->setSize(Point2I(width, height));
    }
 
-#if defined(TORQUE_OS_WIN) && !defined(TORQUE_SDL)
+#if defined(SMTECH_OS_WIN) && !defined(TORQUE_SDL)
    // retrieve the hwnd of our render window
    void* torque_gethwnd()
    {
@@ -198,7 +198,7 @@ extern "C" {
 
 #endif
 
-#ifdef TORQUE_OS_WIN
+#ifdef SMTECH_OS_WIN
    void torque_inputevent(S32 type, S32 value1, S32 value2)
    {
       if (PlatformWindowManager::get() && PlatformWindowManager::get()->getFirstWindow())

@@ -45,7 +45,7 @@ physx::PxPhysics* gPhysics3SDK = NULL;
 physx::PxCooking* Px3World::smCooking = NULL;
 physx::PxFoundation* Px3World::smFoundation = NULL;
 physx::PxDefaultCpuDispatcher* Px3World::smCpuDispatcher = NULL;
-#ifndef TORQUE_OS_MAC
+#ifndef SMTECH_OS_MAC
 physx::PxCudaContextManager* Px3World::smCudaContextManager = NULL;
 #endif
 Px3ConsoleStream* Px3World::smErrorCallback = NULL;
@@ -84,7 +84,7 @@ bool Px3World::restartSDK( bool destroyOnly, Px3World *clientWorld, Px3World *se
    // then we cannot reset the SDK.
    if ( clientWorld || serverWorld )
       return false;
-#ifndef TORQUE_OS_MAC
+#ifndef SMTECH_OS_MAC
    SafeReleasePhysx(smCudaContextManager);
 #endif
    SafeReleasePhysx(smCpuDispatcher);
@@ -137,7 +137,7 @@ bool Px3World::restartSDK( bool destroyOnly, Px3World *clientWorld, Px3World *se
       return false;
    }
 //no gpu support on macOS
-#ifndef TORQUE_OS_MAC
+#ifndef SMTECH_OS_MAC
    //check if we are allowed to use gpu acceleration
    if (PhysicsPlugin::gpuAccelerationAllowed())
    {
@@ -164,7 +164,7 @@ bool Px3World::restartSDK( bool destroyOnly, Px3World *clientWorld, Px3World *se
    physx::PxCookingParams params = physx::PxCookingParams(physx::PxTolerancesScale());
    params.meshWeldTolerance = 0.001f;
    params.meshPreprocessParams = physx::PxMeshPreprocessingFlags(physx::PxMeshPreprocessingFlag::eWELD_VERTICES);
-#ifndef TORQUE_OS_MAC
+#ifndef SMTECH_OS_MAC
    if(smGpuEnabled)
       params.buildGPUData = true;
 #endif
@@ -228,7 +228,7 @@ bool Px3World::initWorld( bool isServer, ProcessList *processList )
    sceneDesc.cpuDispatcher = smCpuDispatcher;
    Con::printf("PhysX3 using Cpu: %d workers", smCpuDispatcher->getWorkerCount());
 
-#ifndef TORQUE_OS_MAC
+#ifndef SMTECH_OS_MAC
    if (smGpuEnabled)
    {
       sceneDesc.flags |= physx::PxSceneFlag::eENABLE_GPU_DYNAMICS;

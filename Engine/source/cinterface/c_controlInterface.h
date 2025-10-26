@@ -35,11 +35,11 @@ TORQUE_API bool torque_isdebugbuild();
 TORQUE_API void torque_setwebdeployment();
 TORQUE_API void torque_resizewindow(S32 width, S32 height);
 
-#if defined(TORQUE_OS_WIN) && !defined(TORQUE_SDL)
+#if defined(SMTECH_OS_WIN) && !defined(TORQUE_SDL)
 TORQUE_API void* torque_gethwnd();
 TORQUE_API void torque_directmessage(U32 message, U32 wparam, U32 lparam);
 #endif
-#ifdef TORQUE_OS_WIN
+#ifdef SMTECH_OS_WIN
 TORQUE_API void torque_inputevent(S32 type, S32 value1, S32 value2);
 #endif
 

@@ -27,7 +27,7 @@
 #include "platform/platform.h"
 
 
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
 // This standard function is not defined when compiling with VC7...
 #define vsnprintf	_vsnprintf
 #endif
@@ -331,7 +331,7 @@ char* dStrcpyl(char *dst, size_t dstSize, ...)
 
 S32 dStrcmp( const UTF16 *str1, const UTF16 *str2)
 {
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
    return wcscmp( reinterpret_cast<const wchar_t *>( str1 ), reinterpret_cast<const wchar_t *>( str2 ) );
 #else
    S32 ret;
@@ -348,7 +348,7 @@ S32 dStrcmp( const UTF16 *str1, const UTF16 *str2)
 
 char* dStrupr(char *str)
 {
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
    return _strupr(str);
 #else
    if (str == NULL)
@@ -366,7 +366,7 @@ char* dStrupr(char *str)
 
 char* dStrlwr(char *str)
 {
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
    return _strlwr(str);
 #else
    if (str == NULL)
@@ -387,13 +387,13 @@ char* dStrlwr(char *str)
 S32 dStrlcat(char *dst, const char *src, size_t dstSize)
 {
    //TODO: Do other platforms support strlcat in their libc
-#ifdef TORQUE_OS_MAC
+#ifdef SMTECH_OS_MAC
    S32 len = strlcat(dst, src, dstSize);
 
    AssertWarn(len < dstSize, "Buffer too small in call to dStrlcat!");
 
    return len;
-#else //TORQUE_OS_MAC
+#else //SMTECH_OS_MAC
    S32 dstLen = dStrlen(dst);
    S32 srcLen = dStrlen(src);
    S32 copyLen = srcLen;
@@ -411,19 +411,19 @@ S32 dStrlcat(char *dst, const char *src, size_t dstSize)
 
    //Return the length of the string we would have generated
    return dstLen + srcLen;
-#endif //TORQUE_OS_MAC
+#endif //SMTECH_OS_MAC
 }
 
 S32 dStrlcpy(char *dst, const char *src, size_t dstSize)
 {
    //TODO: Do other platforms support strlcpy in their libc
-#ifdef TORQUE_OS_MAC
+#ifdef SMTECH_OS_MAC
    S32 len = strlcpy(dst, src, dstSize);
 
    AssertWarn(len < dstSize, "Buffer too small in call to dStrlcpy!");
 
    return len;
-#else //TORQUE_OS_MAC
+#else //SMTECH_OS_MAC
    S32 srcLen = dStrlen(src);
    S32 copyLen = srcLen;
 
@@ -440,7 +440,7 @@ S32 dStrlcpy(char *dst, const char *src, size_t dstSize)
 
    //Return the length of the string we would have generated
    return srcLen;
-#endif //TORQUE_OS_MAC
+#endif //SMTECH_OS_MAC
 }
 
 //------------------------------------------------------------------------------
@@ -485,7 +485,7 @@ S32 dVsprintf(char *buffer, U32 bufferSize, const char *format, va_list arglist)
 
 S32 dSscanf(const char *buffer, const char *format, ...)
 {
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
    va_list args;
    va_start(args, format);
 

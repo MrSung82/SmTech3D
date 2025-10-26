@@ -23,9 +23,9 @@
 project("Torque3DEngine")
 
 if( CMAKE_CXX_SIZEOF_DATA_PTR EQUAL 8 )
-    set( TORQUE_CPU_X64 ON )
+    set( SMTECH_CPU_X64 ON )
 elseif( CMAKE_CXX_SIZEOF_DATA_PTR EQUAL 4 )
-    set( TORQUE_CPU_X32 ON )
+    set( SMTECH_CPU_X32 ON )
 endif()
 
 if(NOT TORQUE_TEMPLATE)
@@ -407,7 +407,7 @@ if(WIN32)
     mark_as_advanced(TORQUE_CXX_FLAGS_LIBS)
 
     set(TORQUE_CXX_FLAGS_COMMON_DEFAULT "-DUNICODE -D_UNICODE -D_CRT_SECURE_NO_WARNINGS /MP /O2 /Ob2 /Oi /Ot /Oy /GT /Zi /W4 /nologo /GF /EHsc /GS- /Gy- /Qpar- /fp:precise /fp:except- /GR /Zc:wchar_t-" )
-    if( TORQUE_CPU_X32 )
+    if( SMTECH_CPU_X32 )
        set(TORQUE_CXX_FLAGS_COMMON_DEFAULT "${TORQUE_CXX_FLAGS_COMMON_DEFAULT} /arch:SSE2")
     endif()
     set(TORQUE_CXX_FLAGS_COMMON ${TORQUE_CXX_FLAGS_COMMON_DEFAULT} CACHE TYPE STRING)

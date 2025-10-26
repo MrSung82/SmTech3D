@@ -108,6 +108,8 @@ static const F32 F32_MIN = F32(1.175494351e-38F);                 ///< Constant 
 static const F32 F32_MAX = F32(3.402823466e+38F);                 ///< Constant Max Limit F32
 
 #define SMTECH_OFFSET_OF(x, cls) offsetof(cls, x)
+#define Offset(x, cls) SMTECH_OFFSET_OF(x, cls)
+#define OffsetNonConst(x, cls) SMTECH_OFFSET_OF(x, cls)
 //--------------------------------------
 // Identify the compiler being used
 
@@ -122,12 +124,34 @@ static const F32 F32_MAX = F32(3.402823466e+38F);                 ///< Constant 
 #  error "Unknown Compiler"
 #endif
 
-#define FN_CDECL __cdecl            ///< Calling convention
+//--------------------------------------
+// Calling conv on 32 bit Windows
+#if defined(_WIN32) && defined(_MSC_VER) && defined(_M_IX86)
+    #define FN_CDECL __cdecl
+#else
+    #define FN_CDECL
+#endif
 
-
+//--------------------------------------
+// Identify the CPU
+#if defined(_M_X64) || defined(__x86_64__)
+#  define SMTECH_CPU_STRING "x64"
+#  define SMTECH_CPU_X64
+#  define SMTECH_LITTLE_ENDIAN
+#elif defined(_M_IX86) || defined(__i386__) || defined(i386)
+#  define SMTECH_CPU_STRING "x86"
+#  define SMTECH_CPU_X86
+#  define SMTECH_LITTLE_ENDIAN
+#ifndef __clang__ // asm not yet supported with clang
+#  define TORQUE_SUPPORTS_NASM
+#  define TORQUE_SUPPORTS_VC_INLINE_X86_ASM
+#endif
+#else
+#  error "Unsupported Target CPU"
+#endif
 
 /// Integral type matching the host's memory address width.
-#ifdef TORQUE_CPU_X64
+#ifdef SMTECH_CPU_X64
    typedef U64 MEM_ADDRESS;
 #else
    typedef U32 MEM_ADDRESS;
@@ -187,7 +211,7 @@ DeclareTemplatizedMinMax( F64 )
 #if defined(TORQUE_BIG_ENDIAN)
 #define makeFourCCTag(c0,c1,c2,c3) ((U32) ((((U32)((U8)(c0)))<<24) + (((U32)((U8)(c1)))<<16) + (((U32)((U8)(c2)))<<8) + ((((U32)((U8)(c3))))))
 #else
-#ifdef TORQUE_LITTLE_ENDIAN
+#ifdef SMTECH_LITTLE_ENDIAN
 #define makeFourCCTag(c3,c2,c1,c0) ((U32) ((((U32)((U8)(c0)))<<24) + (((U32)((U8)(c1)))<<16) + (((U32)((U8)(c2)))<<8) + (((U32)((U8)(c3))))))
 #else
 #error BYTE_ORDER not defined
@@ -196,7 +220,7 @@ DeclareTemplatizedMinMax( F64 )
 
 #define BIT(x) (1 << (x))                       ///< Returns value with bit x set (2^x)
 
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
 #define STDCALL __stdcall
 #else
 #define STDCALL

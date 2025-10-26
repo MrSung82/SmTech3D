@@ -196,7 +196,7 @@ void Stream::readLine(U8 *buffer, U32 bufferSize)
       if ( *buff == '\r' )
       {
 
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
       U32 pushPos = getPosition(); // in case we need to back up.
       if (read(buff)) // feeling free to overwrite the \r as the NULL below will overwrite again...
 	      if (*buff != '\n') // then push our position back.

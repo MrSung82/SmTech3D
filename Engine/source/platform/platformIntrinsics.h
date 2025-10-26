@@ -27,9 +27,9 @@
 #  include "platform/types.h"
 #endif
 
-#if defined( TORQUE_COMPILER_VISUALC )
+#if defined( SMTECH_COMPILER_VISUALC )
 #  include "platform/platformIntrinsics.visualc.h"
-#elif defined ( TORQUE_COMPILER_GCC )
+#elif defined ( SMTECH_COMPILER_GCC )
 #  include "platform/platformIntrinsics.gcc.h"
 #else
 #  error No intrinsics implemented for compiler.

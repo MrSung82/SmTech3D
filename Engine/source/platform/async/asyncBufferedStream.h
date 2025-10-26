@@ -36,7 +36,7 @@
 
 // Disable nonsense warning about unreferenced
 // local function on VC.
-#ifdef TORQUE_COMPILER_VISUALC
+#ifdef SMTECH_COMPILER_VISUALC
    #pragma warning( disable: 4505 )
 #endif
 

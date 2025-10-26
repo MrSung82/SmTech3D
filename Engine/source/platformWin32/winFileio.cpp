@@ -32,9 +32,9 @@
 #include "core/volume.h"
 
 // Microsoft VC++ has this POSIX header in the wrong directory
-#if defined(TORQUE_COMPILER_VISUALC)
+#if defined(SMTECH_COMPILER_VISUALC)
 #include <sys/utime.h>
-#elif defined (TORQUE_COMPILER_GCC)
+#elif defined (SMTECH_COMPILER_GCC)
 #include <time.h>
 #include <sys/utime.h>
 #else

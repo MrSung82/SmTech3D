@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------------
 #include "ts/tsMesh.h"
 
-#if (defined( TORQUE_CPU_X86 ) || defined( TORQUE_CPU_X64 ))
+#if (defined( SMTECH_CPU_X86 ) || defined( SMTECH_CPU_X64 ))
 #include "ts/tsMeshIntrinsics.h"
 #include <xmmintrin.h>
 
@@ -67,4 +67,4 @@ void zero_vert_normal_bulk_SSE(const size_t count, U8 * __restrict const outPtr,
 
 //------------------------------------------------------------------------------
 
-#endif // TORQUE_CPU_X86
+#endif // SMTECH_CPU_X86

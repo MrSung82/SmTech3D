@@ -35,7 +35,7 @@
 #undef D3D11
 
 // Use D3D11 for win32
-#ifdef TORQUE_OS_WIN
+#ifdef SMTECH_OS_WIN
 #define OVR_D3D_VERSION 11
 #include "OVR_CAPI_D3D.h"
 #define OCULUS_USE_D3D

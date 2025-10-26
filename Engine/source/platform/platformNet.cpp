@@ -30,7 +30,7 @@
 //#define TORQUE_DEBUG_LOOKUPS
 
 
-#if defined (TORQUE_OS_WIN)
+#if defined (SMTECH_OS_WIN)
 #define TORQUE_USE_WINSOCK
 #include <errno.h>
 #include <ws2tcpip.h>
@@ -43,7 +43,7 @@
 
 typedef S32 socklen_t;
 
-#elif defined ( TORQUE_OS_MAC )
+#elif defined ( SMTECH_OS_MAC )
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -67,7 +67,7 @@ typedef int SOCKET;
 
 #define closesocket close
 
-#elif defined( TORQUE_OS_LINUX )
+#elif defined( SMTECH_OS_LINUX )
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -630,7 +630,7 @@ static void NetAddressToIPSocket(const NetAddress *address, struct sockaddr_in *
    dMemset(sockAddr, 0, sizeof(struct sockaddr_in));
    sockAddr->sin_family = AF_INET;
    sockAddr->sin_port = htons(address->port);
-   #if defined(TORQUE_OS_BSD) || defined(TORQUE_OS_MAC)
+   #if defined(TORQUE_OS_BSD) || defined(SMTECH_OS_MAC)
    sockAddr->sin_len = sizeof(struct sockaddr_in);
    #endif
    if (address->type == NetAddress::IPBroadcastAddress)

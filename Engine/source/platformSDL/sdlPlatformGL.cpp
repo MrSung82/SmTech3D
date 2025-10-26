@@ -2,7 +2,7 @@
 #include "windowManager/sdl/sdlWindow.h"
 #include "console/console.h"
 
-#ifdef TORQUE_OS_WIN
+#ifdef SMTECH_OS_WIN
 #include "gfx/gl/tGL/tWGL.h"
 #endif
 

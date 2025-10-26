@@ -550,11 +550,11 @@ template<class T> void dCopyArray(T *dst, const T *src, size_t size)
 
 /// The dALIGN macro ensures the passed declaration is
 /// data aligned at 16 byte boundaries.
-#if defined( TORQUE_COMPILER_VISUALC )
+#if defined( SMTECH_COMPILER_VISUALC )
    #define dALIGN( decl ) __declspec( align( 16 ) ) decl
    #define dALIGN_BEGIN __declspec( align( 16 ) )
    #define dALIGN_END
-#elif defined( TORQUE_COMPILER_GCC )
+#elif defined( SMTECH_COMPILER_GCC )
    #define dALIGN( decl ) decl __attribute__( ( aligned( 16 ) ) )
    #define dALIGN_BEGIN
    #define dALIGN_END __attribute__( ( aligned( 16 ) ) )

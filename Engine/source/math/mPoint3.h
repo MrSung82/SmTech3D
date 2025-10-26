@@ -431,7 +431,7 @@ inline Point3I& Point3I::operator/=(S32 div)
 //-------------------------------------- Point3F
 //
 inline Point3F::Point3F()
-#if defined(TORQUE_OS_LINUX)
+#if defined(SMTECH_OS_LINUX)
  : x(0.f), y(0.f), z(0.f)
 #endif
 {

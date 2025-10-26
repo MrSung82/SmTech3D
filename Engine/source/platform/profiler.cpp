@@ -22,11 +22,11 @@
 
 #include "platform/platform.h"
 
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
 #include<Windows.h> // for SetThreadAffinityMask
 #endif
 
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
 #include <mach/mach_time.h>
 #endif
 
@@ -131,7 +131,7 @@ U32 endHighResolutionTimer(U32 time[2])
    return ticks;
 }
 
-#elif defined(TORQUE_OS_MAC)
+#elif defined(SMTECH_OS_MAC)
 
 
 void startHighResolutionTimer(U32 time[2]) {
@@ -481,7 +481,7 @@ void Profiler::hashPop(ProfilerRootData *expected)
       if(!mEnabled && mNextEnable)
          startHighResolutionTimer(mCurrentProfilerData->mStartTime);
 
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
       // The high performance counters under win32 are unreliable when running on multiple
       // processors. When the profiler is enabled, we restrict Torque to a single processor.
       if(mNextEnable != mEnabled)

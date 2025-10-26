@@ -27,78 +27,37 @@
 // For more information on VisualC++ predefined macros
 // http://support.microsoft.com/default.aspx?scid=kb;EN-US;q65472
 
-//--------------------------------------
-// Types
-typedef signed _int64   S64;
-typedef unsigned _int64 U64;
-
-// The types.h version of SMTECH_UNUSED no longer works for recent versions of MSVC.
-// Since it appears that MS has made this impossible to do in a zero-overhead way,
-// just turn the warning off in release builds.
-#undef SMTECH_UNUSED
-#ifdef TORQUE_DEBUG
-#define SMTECH_UNUSED(var) ((0,0) ? (void)(var) : (void)0)
-#else
-#pragma warning(disable: 4189) // local variable is initialized but not referenced
-#define SMTECH_UNUSED(var) ((void)0)
-#endif
 
 //--------------------------------------
 // Compiler Version
-#define TORQUE_COMPILER_VISUALC _MSC_VER
+#define SMTECH_COMPILER_VISUALC _MSC_VER
 
 //--------------------------------------
 // Identify the compiler string
-#if _MSC_VER < 1200
+#if _MSC_VER < 1920
    // No support for old compilers
-#  error "VC: Minimum VisualC++ 6.0 or newer required"
+#  error "VC: Minimum VisualC++ 2019 or newer required"
 #else // _MSC_VER >= 1200
-#  define TORQUE_COMPILER_STRING "VisualC++"
+#  define SMTECH_COMPILER_STRING "VisualC++"
 #endif
 
 
 //--------------------------------------
 // Identify the Operating System
 #if defined( _WIN32 ) && !defined ( _WIN64 )
-#  define TORQUE_OS_STRING "Win32"
-#  define TORQUE_OS_WIN
-#  define TORQUE_OS_WIN32
-#  include "platform/types.win.h"
+#  define SMTECH_OS_STRING "Win32"
+#  define SMTECH_OS_WIN
+#  define SMTECH_OS_WIN32
+
 #elif defined( _WIN64 )
-#  define TORQUE_OS_STRING "Win64"
-#  define TORQUE_OS_WIN
-#  define TORQUE_OS_WIN64
-#  include "platform/types.win.h"
+#  define SMTECH_OS_STRING "Win64"
+#  define SMTECH_OS_WIN
+#  define SMTECH_OS_WIN64
+
 #else 
 #  error "VC: Unsupported Operating System"
 #endif
 
-
-//--------------------------------------
-// Identify the CPU
-#if defined( _M_X64 )
-#  define TORQUE_CPU_STRING "x64"
-#  define TORQUE_CPU_X64
-#  define TORQUE_LITTLE_ENDIAN
-#elif defined( _M_IX86 )
-#  define TORQUE_CPU_STRING "x86"
-#  define TORQUE_CPU_X86
-#  define TORQUE_LITTLE_ENDIAN
-#ifndef __clang__ // asm not yet supported with clang
-#  define TORQUE_SUPPORTS_NASM
-#  define TORQUE_SUPPORTS_VC_INLINE_X86_ASM
-#endif
-#else
-#  error "VC: Unsupported Target CPU"
-#endif
-
-#ifndef FN_CDECL
-#  define FN_CDECL __cdecl            ///< Calling convention
-#endif
-
-#if _MSC_VER < 1700
-#define for if(false) {} else for   ///< Hack to work around Microsoft VC's non-C++ compliance on variable scoping
-#endif
 
 // disable warning caused by memory layer
 // see msdn.microsoft.com "Compiler Warning (level 1) C4291" for more details

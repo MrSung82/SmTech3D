@@ -68,7 +68,7 @@ protected:
    static physx::PxFoundation* smFoundation;
    static physx::PxCooking *smCooking;
    static physx::PxDefaultCpuDispatcher* smCpuDispatcher;
-#ifndef TORQUE_OS_MAC
+#ifndef SMTECH_OS_MAC
    static physx::PxCudaContextManager* smCudaContextManager;
 #endif
    static physx::PxPvd* smPvdConnection;

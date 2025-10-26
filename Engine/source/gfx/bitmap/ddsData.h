@@ -34,7 +34,7 @@
 
 #include "core/util/fourcc.h"
 
-#ifdef TORQUE_OS_WIN
+#ifdef SMTECH_OS_WIN
 #include <dxgiformat.h>
 #endif
 
@@ -43,7 +43,7 @@ namespace dds
    ///////////////////////////////////////////////////////////////////////////////////
    //                           DXGI Formats                                        //
    ///////////////////////////////////////////////////////////////////////////////////
-#ifndef TORQUE_OS_WIN
+#ifndef SMTECH_OS_WIN
    //From directx SDK
    typedef enum DXGI_FORMAT
    {

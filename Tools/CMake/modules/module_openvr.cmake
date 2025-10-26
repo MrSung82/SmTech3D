@@ -20,7 +20,7 @@ if(TORQUE_OPENVR)
 	 
 	# Libs
 	if( WIN32 ) 
-		if( TORQUE_CPU_X64 )
+		if( SMTECH_CPU_X64 )
 		link_directories( "${TORQUE_OPENVR_SDK_PATH}/lib/win64" )
 		else()
 		link_directories( "${TORQUE_OPENVR_SDK_PATH}/lib/win32" )

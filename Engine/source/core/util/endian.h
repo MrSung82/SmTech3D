@@ -105,7 +105,7 @@ inline F64 endianSwap(const F64 in_swap)
 //------------------------------------------------------------------------------
 // Endian conversions
 
-#ifdef TORQUE_LITTLE_ENDIAN
+#ifdef SMTECH_LITTLE_ENDIAN
 
 #define TORQUE_DECLARE_TEMPLATIZED_ENDIAN_CONV(type) \
    inline type convertHostToLEndian(type i) { return i; } \

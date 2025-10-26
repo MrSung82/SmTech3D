@@ -36,7 +36,7 @@ AFTER_MODULE_INIT( Sim )
 {
    NamedFactory<PhysicsPlugin>::add( "Bullet", &BtPlugin::create );
 
-   #if defined(TORQUE_OS_MAC)
+   #if defined(SMTECH_OS_MAC)
       NamedFactory<PhysicsPlugin>::add( "default", &BtPlugin::create );
    #endif   
 }

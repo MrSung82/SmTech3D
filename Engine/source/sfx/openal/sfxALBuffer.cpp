@@ -195,7 +195,7 @@ void SFXALBuffer::_flush()
    _getUniqueVoice()->mSampleOffset = 0;
    
    //RD: disabling hack for now; rewritten queueing should be able to cope
-   #if 0 //def TORQUE_OS_MAC
+   #if 0 //def SMTECH_OS_MAC
    
    //WORKAROUND: Ugly hack on Mac.  Apparently there's a bug in the OpenAL implementation
    // that will cause AL_BUFFERS_PROCESSED to not be reset as it should be causing write()

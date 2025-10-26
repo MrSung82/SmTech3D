@@ -62,7 +62,7 @@ MODULE_BEGIN( TSMeshIntrinsics )
       // Find the best implementation for the current CPU
       if(Platform::SystemInfo.processor.properties & CPU_PROP_SSE)
       {
-         #if (defined( TORQUE_CPU_X86 ) || defined( TORQUE_CPU_X64 )) 
+         #if (defined( SMTECH_CPU_X86 ) || defined( SMTECH_CPU_X64 )) 
             zero_vert_normal_bulk = zero_vert_normal_bulk_SSE;
          #endif
       }

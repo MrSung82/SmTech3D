@@ -173,11 +173,11 @@ void SFXFMODProvider::init()
    dllName = "fmodex64.dll";
    pDllName = "fmodexp64.dll";
    eventDllName = "fmod_event64.dll";
-#elif defined(TORQUE_OS_WIN)
+#elif defined(SMTECH_OS_WIN)
    dllName = "fmodex.dll";
    pDllName = "fmodexp.dll";
    eventDllName = "fmod_event.dll";
-#elif defined( TORQUE_OS_MAC )
+#elif defined( SMTECH_OS_MAC )
    dllName = "libfmodex.dylib";
    pDllName = "libfmodexp.dylib";
    eventDllName = "libfmodevent.dylib";

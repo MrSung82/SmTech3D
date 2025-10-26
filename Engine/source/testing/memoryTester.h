@@ -23,7 +23,7 @@
 #include <iostream>
 #include <gtest/gtest.h>
 
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
 #define _CRTDBG_MAP_ALLOC
 #include <crtdbg.h>
 #endif
@@ -35,7 +35,7 @@ namespace testing
    public:
       virtual void OnTestStart(const TestInfo&)
       {
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
          _CrtMemCheckpoint(&memState_);
 #endif
       }
@@ -44,7 +44,7 @@ namespace testing
       {
          if(test_info.result()->Passed())
          {
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
             _CrtMemState stateNow, stateDiff;
             _CrtMemCheckpoint(&stateNow);
             int diffResult = _CrtMemDifference(&stateDiff, &memState_, &stateNow);
@@ -57,7 +57,7 @@ namespace testing
       }
 
    private:
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
       _CrtMemState memState_;
 #endif
    };

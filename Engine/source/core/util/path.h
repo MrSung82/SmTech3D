@@ -40,7 +40,7 @@ class Path
 public:
    enum Separator
    {
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
       OsSeparator = '\\'
 #else
       OsSeparator = '/'

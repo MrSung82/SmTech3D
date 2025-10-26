@@ -250,7 +250,7 @@ void TSMesh::innerRender( TSMaterialList *materials, const TSRenderState &rdata,
       const U32 matIndex = draw.matIndex & TSDrawPrimitive::MaterialMask;
       BaseMatInstance *matInst = materials->getMaterialInst( matIndex );
 
-#ifndef TORQUE_OS_MAC
+#ifndef SMTECH_OS_MAC
 
       // Get the instancing material if this mesh qualifies.
       if (mMeshType != SkinMeshType && pb->mPrimitiveArray[i].numVertices < smMaxInstancingVerts )

@@ -250,7 +250,7 @@ bool FileDialog::Execute()
 
    nfdresult_t result = NFD_ERROR;
    String defaultPath = String(mData.mDefaultPath);
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
    defaultPath.replace("/", "\\");
    rootDir.replace("/", "\\");
 #endif

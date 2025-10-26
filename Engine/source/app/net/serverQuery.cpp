@@ -1738,7 +1738,7 @@ static void handleGameMasterInfoRequest( const NetAddress* address, U32 key, U8 
       temp32 = getVersionNumber();
       out->write( temp32 );
       temp8 = 0;
-#if defined(TORQUE_OS_LINUX) || defined(TORQUE_OS_OPENBSD)
+#if defined(SMTECH_OS_LINUX) || defined(TORQUE_OS_OPENBSD)
       temp8 |= ServerInfo::Status_Linux;
 #endif
 
@@ -2002,7 +2002,7 @@ static void handleGameInfoRequest( const NetAddress* address, U32 key, U8 flags 
       }
 
       U8 status = 0;
-#if defined(TORQUE_OS_LINUX) || defined(TORQUE_OS_OPENBSD)
+#if defined(SMTECH_OS_LINUX) || defined(TORQUE_OS_OPENBSD)
       status |= ServerInfo::Status_Linux;
 #endif
 

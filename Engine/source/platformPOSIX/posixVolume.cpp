@@ -559,7 +559,7 @@ void PosixDirectory::_updateStatus()
 
 //-----------------------------------------------------------------------------
 
-#ifndef TORQUE_OS_MAC // Mac has its own native FS build on top of the POSIX one.
+#ifndef SMTECH_OS_MAC // Mac has its own native FS build on top of the POSIX one.
 
 Torque::FS::FileSystemRef  Platform::FS::createNativeFS( const String &volume )
 {

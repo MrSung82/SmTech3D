@@ -36,7 +36,7 @@
 #include "platform/platformAssert.h"
 #endif
 
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
 // These standard functions are not defined on Win32 and other Microsoft platforms...
 #define strcasecmp   _stricmp
 #define strncasecmp  _strnicmp
@@ -45,7 +45,7 @@
 #define strtof       (float)strtod
 #endif // _MSC_VER < 1800
 
-#endif // defined(TORQUE_OS_WIN)
+#endif // defined(SMTECH_OS_WIN)
 
 //------------------------------------------------------------------------------
 // standard string functions [defined in platformString.cpp]

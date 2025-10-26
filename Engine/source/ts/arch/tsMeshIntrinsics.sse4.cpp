@@ -21,8 +21,8 @@
 //-----------------------------------------------------------------------------
 #include "ts/tsMesh.h"
 
-#if (defined(TORQUE_CPU_X86)  || defined( TORQUE_CPU_X64 )) && (_MSC_VER >= 1500)
+#if (defined(SMTECH_CPU_X86)  || defined( SMTECH_CPU_X64 )) && (_MSC_VER >= 1500)
 #include "ts/tsMeshIntrinsics.h"
 #include <smmintrin.h>
 
-#endif // TORQUE_CPU_X86
+#endif // SMTECH_CPU_X86

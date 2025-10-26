@@ -30,62 +30,44 @@
 
 //--------------------------------------
 // Compiler Version
-#define TORQUE_COMPILER_GCC (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
+#define SMTECH_COMPILER_GCC (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
 
 
 //--------------------------------------
 // Identify the compiler string
 
 #if defined(__MINGW32__)
-#  define TORQUE_COMPILER_STRING "GCC (MinGW)"
+#  define SMTECH_COMPILER_STRING "GCC (MinGW)"
 #  define TORQUE_COMPILER_MINGW
 #elif defined(__CYGWIN__)
-#  define TORQUE_COMPILER_STRING "GCC (Cygwin)"
-#  define TORQUE_COMPILER_MINGW
+#  error Cygwin is not supported
 #else
-#  define TORQUE_COMPILER_STRING "GCC "
+#  define SMTECH_COMPILER_STRING "GCC "
 #endif
 
 
 //--------------------------------------
 // Identify the Operating System
 #if defined(_WIN64)
-#  define TORQUE_OS_STRING "Win64"
-#  define TORQUE_OS_WIN
-#  define TORQUE_OS_WIN64
+#  define SMTECH_OS_STRING "Win64"
+#  define SMTECH_OS_WIN
+#  define SMTECH_OS_WIN64
 
 #elif defined(__WIN32__) || defined(_WIN32)
-#  define TORQUE_OS_STRING "Win32"
-#  define TORQUE_OS_WIN
-#  define TORQUE_OS_WIN32
+#  define SMTECH_OS_STRING "Win32"
+#  define SMTECH_OS_WIN
+#  define SMTECH_OS_WIN32
 #  define TORQUE_SUPPORTS_NASM
 #  define TORQUE_SUPPORTS_GCC_INLINE_X86_ASM
 
-#elif defined(linux) || defined(LINUX)
-#  define TORQUE_OS_STRING "Linux"
-#  define TORQUE_OS_LINUX
-//#  define TORQUE_SUPPORTS_NASM
-//#  define TORQUE_SUPPORTS_GCC_INLINE_X86_ASM
-#  include "platform/types.posix.h"
-
-#elif defined(__OpenBSD__)
-#  define TORQUE_OS_STRING "OpenBSD"
-#  define TORQUE_OS_OPENBSD
-#  define TORQUE_SUPPORTS_NASM
-#  define TORQUE_SUPPORTS_GCC_INLINE_X86_ASM
-#  include "platform/types.posix.h"
-
-#elif defined(__FreeBSD__)
-#  define TORQUE_OS_STRING "FreeBSD"
-#  define TORQUE_OS_FREEBSD
-#  define TORQUE_SUPPORTS_NASM
-#  define TORQUE_SUPPORTS_GCC_INLINE_X86_ASM
-#  include "platform/types.posix.h"
+#elif defined(__linux__)
+#  define SMTECH_OS_STRING "Linux"
+#  define SMTECH_OS_LINUX
 
 #elif defined(__APPLE__)
-#  define TORQUE_OS_STRING "MacOS X"
-#  define TORQUE_OS_MAC
-#  include "platform/types.mac.h"
+#  define SMTECH_OS_STRING "MacOS X"
+#  define SMTECH_OS_MAC
+#error MacOS is not supported for now, may be in future
 #  if defined(i386)
 // Disabling ASM on XCode for shared library build code relocation issues
 // This could be reconfigured for static builds, though minimal impact
@@ -96,57 +78,6 @@
 #endif
 
 
-//--------------------------------------
-// Identify the CPU
-#if defined(i386) || defined(__i386) || defined(__i386__)
-#  define TORQUE_CPU_STRING "Intel x86"
-#  define TORQUE_CPU_X86
-#  define TORQUE_LITTLE_ENDIAN
-
-#elif defined(__x86_64__)
-#  define TORQUE_CPU_STRING "Intel x64"
-#  define TORQUE_CPU_X64
-#  define TORQUE_LITTLE_ENDIAN
-
-#else
-#  error "GCC: Unsupported Target CPU"
-#endif
-
-#ifndef Offset
-/// Offset macro:
-/// Calculates the location in memory of a given member x of class cls from the
-/// start of the class.  Need several definitions to account for various
-/// flavors of GCC.
-
-// now, for each compiler type, define the Offset macros that should be used.
-// The Engine code usually uses the Offset macro, but OffsetNonConst is needed
-// when a variable is used in the indexing of the member field (see
-// TSShapeConstructor::initPersistFields for an example)
-
-// compiler is non-GCC, or gcc < 3
-#if (__GNUC__ < 3)
-#define Offset(x, cls) SMTECH_OFFSET_OF(x, cls)
-#define OffsetNonConst(x, cls) SMTECH_OFFSET_OF(x, cls)
-
-// compiler is GCC 3 with minor version less than 4
-#elif defined(TORQUE_COMPILER_GCC) && (__GNUC__ == 3) && (__GNUC_MINOR__ < 4)
-#define Offset(x, cls) SMTECH_OFFSET_OF(x, cls)
-#define OffsetNonConst(x, cls) SMTECH_OFFSET_OF(x, cls)
-
-// compiler is GCC 3 with minor version greater than 4
-#elif defined(TORQUE_COMPILER_GCC) && (__GNUC__ == 3) && (__GNUC_MINOR__ >= 4)
-#include <stddef.h>
-#define Offset(x, cls) SMTECH_OFFSET_OF(x, cls)
-#define OffsetNonConst(x, cls) SMTECH_OFFSET_OF(x, cls)
-
-// compiler is GCC 4
-#elif defined(TORQUE_COMPILER_GCC) && (__GNUC__ == 4)
-#include <stddef.h>
-#define Offset(x, cls) SMTECH_OFFSET_OF(x, cls)
-#define OffsetNonConst(x, cls) SMTECH_OFFSET_OF(x, cls)
-
-#endif
-#endif
 
 #endif // INCLUDED_TYPES_GCC_H
 

@@ -554,7 +554,7 @@ bool OpenVRProvider::enable()
 
    dMemset(&mLUID, '\0', sizeof(mLUID));
 
-#ifdef TORQUE_OS_WIN32
+#ifdef SMTECH_OS_WIN32
 
    // For windows we need to lookup the DXGI record for this and grab the LUID for the display adapter. We need the LUID since 
    // T3D uses EnumAdapters1 not EnumAdapters whereas openvr uses EnumAdapters.
@@ -1055,7 +1055,7 @@ bool OpenVRProvider::_handleDeviceEvent(GFXDevice::GFXDeviceEventType evt)
 
 S32 OpenVRProvider::getDisplayDeviceId() const
 {
-#if defined(TORQUE_OS_WIN64) || defined(TORQUE_OS_WIN32)
+#if defined(SMTECH_OS_WIN64) || defined(SMTECH_OS_WIN32)
    if (GFX && GFX->getAdapterType() == Direct3D11)
    {
       Vector<GFXAdapter*> adapterList;

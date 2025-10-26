@@ -25,7 +25,7 @@
 #include "core/stringTable.h"
 #include "core/strings/unicode.h"
 
-#ifndef TORQUE_OS_WIN64
+#ifndef SMTECH_OS_WIN64
 typedef long SHANDLE_PTR;
 #endif
 

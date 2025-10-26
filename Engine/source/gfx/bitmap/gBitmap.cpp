@@ -765,7 +765,7 @@ bool GBitmap::getColor(const U32 x, const U32 y, ColorI& rColor) const
       break;
 
      case GFXFormatR5G5B5A1:
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
       rColor.set( (*((U16*)pLoc) >> 0) & 0x1F,
                   (*((U16*)pLoc) >> 5) & 0x1F,
                   (*((U16*)pLoc) >> 10) & 0x1F,
@@ -813,7 +813,7 @@ bool GBitmap::setColor(const U32 x, const U32 y, const ColorI& rColor)
       break;
       
      case GFXFormatR5G6B5:
-      #ifdef TORQUE_OS_MAC
+      #ifdef SMTECH_OS_MAC
          *((U16*)pLoc) = (rColor.red << 11) | (rColor.green << 5) | (rColor.blue << 0) ;
       #else
          *((U16*)pLoc) = (rColor.blue << 0) | (rColor.green << 5) | (rColor.red << 11);
@@ -821,7 +821,7 @@ bool GBitmap::setColor(const U32 x, const U32 y, const ColorI& rColor)
       break;
 
      case GFXFormatR5G5B5A1:
-      #ifdef TORQUE_OS_MAC
+      #ifdef SMTECH_OS_MAC
          *((U16*)pLoc) = (((rColor.alpha>0) ? 1 : 0)<<15) | (rColor.blue << 10) | (rColor.green << 5) | (rColor.red << 0);
       #else
          *((U16*)pLoc) = (rColor.blue << 1) | (rColor.green << 6) | (rColor.red << 11) | ((rColor.alpha>0) ? 1 : 0);
@@ -1301,7 +1301,7 @@ U32 GBitmap::getSurfaceSize(const U32 mipLevel) const
    if (mInternalFormat >= GFXFormatBC1 && mInternalFormat <= GFXFormatBC3)
    {
       // From the directX docs:
-      // max(1, width ÷ 4) x max(1, height ÷ 4) x 8(DXT1) or 16(DXT2-5)
+      // max(1, width ï¿½ 4) x max(1, height ï¿½ 4) x 8(DXT1) or 16(DXT2-5)
 
       U32 sizeMultiple = 0;
 

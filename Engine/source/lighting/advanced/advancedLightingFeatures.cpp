@@ -31,7 +31,7 @@
 #include "gfx/gfxDevice.h"
 #include "core/util/safeDelete.h"
 
-#if defined( TORQUE_OS_WIN )
+#if defined( SMTECH_OS_WIN )
 #  include "lighting/advanced/hlsl/gBufferConditionerHLSL.h"
 #  include "lighting/advanced/hlsl/advancedLightingFeaturesHLSL.h"
 #endif
@@ -67,7 +67,7 @@ void AdvancedLightingFeatures::registerFeatures( const GFXFormat &deferredTarget
    }
    else
    {
-#if defined( TORQUE_OS_WIN )
+#if defined( SMTECH_OS_WIN )
       cond = new GBufferConditionerHLSL( deferredTargetFormat, GBufferConditionerHLSL::ViewSpace );
       FEATUREMGR->registerFeature(MFT_DeferredConditioner, cond);
       FEATUREMGR->registerFeature(MFT_RTLighting, new DeferredRTLightingFeatHLSL());

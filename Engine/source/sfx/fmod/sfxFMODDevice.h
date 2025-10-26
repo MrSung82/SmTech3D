@@ -40,7 +40,7 @@
 
 
 // Disable warning for unused static functions.
-#ifdef TORQUE_COMPILER_VISUALC
+#ifdef SMTECH_COMPILER_VISUALC
    #pragma warning( disable : 4505 )
 #endif
 
@@ -59,7 +59,7 @@
 
 
 // This doesn't appear to exist in some contexts, so let's just add it.
-#if defined(TORQUE_OS_WIN) || defined(TORQUE_OS_XENON)
+#if defined(SMTECH_OS_WIN) || defined(TORQUE_OS_XENON)
 #ifndef WINAPI
 #define WINAPI __stdcall
 #endif

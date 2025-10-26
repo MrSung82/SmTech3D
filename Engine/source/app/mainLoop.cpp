@@ -121,13 +121,13 @@ namespace engineAPI
 
 #if defined( TORQUE_DEBUG ) && !defined( TORQUE_DISABLE_MEMORY_MANAGER )
 
-   #ifdef TORQUE_COMPILER_VISUALC
+   #ifdef SMTECH_COMPILER_VISUALC
    #  pragma data_seg( ".CRT$XTU" )
    
       static void* sCheckMemBeforeTermination = &Memory::ensureAllFreed;
       
    #  pragma data_seg()
-   #elif defined( TORQUE_COMPILER_GCC )
+   #elif defined( SMTECH_COMPILER_GCC )
    
        __attribute__ ( ( destructor ) ) static void _ensureAllFreed()
       {
@@ -246,7 +246,7 @@ void StandardMainLoop::init()
    NetStringTable::create();
 
    // Use debug output logging on the Xbox and OSX builds
-#if defined( _XBOX ) || defined( TORQUE_OS_MAC )
+#if defined( _XBOX ) || defined( SMTECH_OS_MAC )
    DebugOutputConsumer::init();
 #endif
 
@@ -363,7 +363,7 @@ void StandardMainLoop::shutdown()
 
    Platform::shutdown();
    
-#if defined( _XBOX ) || defined( TORQUE_OS_MAC )
+#if defined( _XBOX ) || defined( SMTECH_OS_MAC )
    DebugOutputConsumer::destroy();
 #endif
 
@@ -609,7 +609,7 @@ bool StandardMainLoop::doMainLoop()
                Con::printf("  Using background sleep time: %u", Platform::getBackgroundSleepTime());
 #endif
 
-#ifdef TORQUE_OS_MAC
+#ifdef SMTECH_OS_MAC
             if (newFocus)
                WindowManager->getFirstWindow()->show();
                

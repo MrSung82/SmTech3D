@@ -67,7 +67,7 @@ void bitmapExtrude5551_c(const void *srcMip, void *mip, U32 srcHeight, U32 srcWi
       {
          U32 a = src[0];
          U32 c = src[stride];
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
             dst[y] = ((( (a >> 10) + (c >> 10)) >> 1) << 10) |
                      ((( ((a >> 5) & 0x1F) + ((c >> 5) & 0x1f)) >> 1) << 5) |
                      ((( ((a >> 0) & 0x1F) + ((c >> 0) & 0x1f)) >> 1) << 0);
@@ -190,7 +190,7 @@ void bitmapConvertRGB_to_1555_c(U8 *src, U32 pixels)
       U32 g = src[1] >> 3;
       U32 b = src[2] >> 3;
 
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
       *dst++ = 0x8000 | (b << 10) | (g << 5) | (r << 0);
 #else
       *dst++ = b | (g << 5) | (r << 10) | 0x8000;
@@ -212,7 +212,7 @@ void bitmapConvertRGB_to_5551_c(U8 *src, U32 pixels)
       U32 g = src[1] >> 3;
       U32 b = src[2] >> 3;
 
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
       *dst++ = (1 << 15) | (b << 10) | (g << 5) | (r << 0);
 #else
       *dst++ = (b << 1) | (g << 6) | (r << 11) | 1;

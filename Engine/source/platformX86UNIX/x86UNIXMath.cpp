@@ -137,7 +137,7 @@ F32 Platform::getRandom()
 }
 
 
-#if defined(TORQUE_CPU_X86) || defined(__x86_64__)
+#if defined(SMTECH_CPU_X86) || defined(__x86_64__)
 
 U32 Platform::getMathControlState()
 {

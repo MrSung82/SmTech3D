@@ -361,7 +361,7 @@ enum InputModifiers
    SI_MAC_OPT   = (SI_MAC_LOPT|SI_MAC_ROPT),
 
    /// modifier keys used for common operations
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
    SI_COPYPASTE = SI_ALT,
    SI_MULTISELECT = SI_ALT,
    SI_RANGESELECT = SI_SHIFT,
@@ -375,7 +375,7 @@ enum InputModifiers
    SI_PRIMARY_CTRL = SI_CTRL,
 #endif
    /// modfier key used in conjunction w/ arrow keys to move cursor to next word
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
    SI_WORDJUMP = SI_MAC_OPT,
 #else
    SI_WORDJUMP = SI_CTRL,
@@ -384,7 +384,7 @@ enum InputModifiers
    SI_LINEJUMP = SI_ALT,
 
    /// modifier key used in conjunction w/ home & end to jump to the top or bottom of a document
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
    SI_DOCJUMP = SI_ANY,
 #else
    SI_DOCJUMP = SI_CTRL,

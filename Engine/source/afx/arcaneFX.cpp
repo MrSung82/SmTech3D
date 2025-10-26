@@ -122,7 +122,7 @@ void arcaneFX::init()
   NULLSTRING = StringTable->insert("");
   sParameterFieldPrefix = StringTable->insert("_");
 
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
   arcaneFX::sTerrainZodiacZBias = -0.00025f;
   arcaneFX::sInteriorZodiacZBias = -0.00025f;
   arcaneFX::sPolysoupZodiacZBias = -0.00025f;

@@ -2397,7 +2397,7 @@ DefineEngineFunction(excludeOtherInstance, bool, (const char* appIdentifer),,
                 "@ingroup GuiCore")
 {
       // mac can only run one instance in general.
-#if !defined(TORQUE_OS_MAC) && !defined(TORQUE_DEBUG) && !defined(TORQUE_OS_LINUX)
+#if !defined(SMTECH_OS_MAC) && !defined(TORQUE_DEBUG) && !defined(SMTECH_OS_LINUX)
    return Platform::excludeOtherInstances(appIdentifer);
 #else
    // We can just return true if we get here.

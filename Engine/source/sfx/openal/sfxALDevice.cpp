@@ -67,7 +67,7 @@ SFXALDevice::SFXALDevice(  SFXProvider *provider,
 
    // Start the update thread.
    // TODO AsyncPeriodicUpdateThread support for Linux/Mac
-#ifdef TORQUE_OS_WIN
+#ifdef SMTECH_OS_WIN
    if( !Con::getBoolVariable( "$_forceAllMainThread" ) )
    {
       SFXInternal::gUpdateThread = new AsyncPeriodicUpdateThread

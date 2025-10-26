@@ -28,7 +28,7 @@
 #endif
 
 
-#if defined(TORQUE_COMPILER_VISUALC)
+#if defined(SMTECH_COMPILER_VISUALC)
    #define TORQUE_CONSTANT_S64(a) (a##I64)
    #define TORQUE_CONSTANT_U64(a) (a##UI64)
 #else

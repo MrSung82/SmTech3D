@@ -1043,7 +1043,7 @@ const char* ActionMap::getModifierString(const U32 modifiers)
 
    switch (realModifiers & (SI_SHIFT|SI_CTRL|SI_ALT|SI_MAC_OPT)) 
    {
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
       // optional code, to output alt as cmd on mac.
       // interpreter sees them as the same...
      case (SI_SHIFT|SI_CTRL|SI_ALT):

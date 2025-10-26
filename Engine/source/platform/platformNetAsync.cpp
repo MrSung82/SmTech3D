@@ -25,7 +25,7 @@
 #include "platform/threads/threadPool.h"
 #include "console/console.h"
 
-#if defined(TORQUE_OS_WIN)
+#if defined(SMTECH_OS_WIN)
 #  include <winsock.h>
 #else
 #  include <netdb.h>

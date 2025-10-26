@@ -25,7 +25,7 @@
 #include "core/strings/stringFunctions.h"
 #include "console/console.h"
 
-#ifdef TORQUE_OS_WIN
+#ifdef SMTECH_OS_WIN
    #include "tWGL.h"
 #endif
 

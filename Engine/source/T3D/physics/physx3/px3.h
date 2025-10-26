@@ -25,25 +25,25 @@
 
 //-------------------------------------------------------------------------
 //defines to keep PhysX happy and compiling
-#if defined(TORQUE_OS_MAC) && !defined(__APPLE__)
+#if defined(SMTECH_OS_MAC) && !defined(__APPLE__)
    #define __APPLE__
-#elif defined(TORQUE_OS_LINUX) && !defined(LINUX)
+#elif defined(SMTECH_OS_LINUX) && !defined(LINUX)
    #define LINUX
-#elif defined(TORQUE_OS_WIN) && !defined(WIN32)
+#elif defined(SMTECH_OS_WIN) && !defined(WIN32)
    #define WIN32
 #endif
 
 // macOS _DEBUG & NDEBUG
-#if defined(TORQUE_OS_MAC) && defined(TORQUE_DEBUG) && !defined(_DEBUG)
+#if defined(SMTECH_OS_MAC) && defined(TORQUE_DEBUG) && !defined(_DEBUG)
    #define _DEBUG
-#elif defined(TORQUE_OS_MAC) && defined(TORQUE_RELEASE) && !defined(NDEBUG)
+#elif defined(SMTECH_OS_MAC) && defined(TORQUE_RELEASE) && !defined(NDEBUG)
    #define NDEBUG
 #endif
 
 // Linux _DEBUG & NDEBUG
-#if defined(TORQUE_OS_LINUX) && defined(TORQUE_DEBUG) && !defined(_DEBUG)
+#if defined(SMTECH_OS_LINUX) && defined(TORQUE_DEBUG) && !defined(_DEBUG)
 #define _DEBUG
-#elif defined(TORQUE_OS_LINUX) && defined(TORQUE_RELEASE) && !defined(NDEBUG)
+#elif defined(SMTECH_OS_LINUX) && defined(TORQUE_RELEASE) && !defined(NDEBUG)
 #define NDEBUG
 #endif
 

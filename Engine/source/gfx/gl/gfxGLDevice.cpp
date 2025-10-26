@@ -143,7 +143,7 @@ void GFXGLDevice::initGLState()
       mUseGlMap = false;
    
    // Workaround for all Mac's, has a problem using glMap* with volatile buffers
-#ifdef TORQUE_OS_MAC
+#ifdef SMTECH_OS_MAC
    mUseGlMap = false;
 #endif
 

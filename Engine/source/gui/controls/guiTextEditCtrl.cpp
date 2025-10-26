@@ -792,7 +792,7 @@ bool GuiTextEditCtrl::onKeyDown(const GuiEvent &event)
    {
       switch(event.keyCode)
       {
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
          // Added UNIX emacs key bindings - just a little hack here...
 
          // Ctrl-B - move one character back
@@ -888,7 +888,7 @@ bool GuiTextEditCtrl::onKeyDown(const GuiEvent &event)
             return true;
          }         
          
-#if !defined(TORQUE_OS_MAC)
+#if !defined(SMTECH_OS_MAC)
          // Select all
          case KEY_A:
          {
@@ -939,7 +939,7 @@ bool GuiTextEditCtrl::onKeyDown(const GuiEvent &event)
             break;
       }
    }
-#if defined(TORQUE_OS_MAC)
+#if defined(SMTECH_OS_MAC)
    // mac style cut / copy / paste / undo keybinds
    else if (event.modifier & SI_ALT)
    {
@@ -1429,7 +1429,7 @@ void GuiTextEditCtrl::drawText( const RectI &drawRect, bool isFocused )
       }
       cursorStart.x = mTextOffset.x + cursorOffset;
 
-#ifdef TORQUE_OS_MAC
+#ifdef SMTECH_OS_MAC
       cursorStart.x += charWidth/2;
 #endif
       
