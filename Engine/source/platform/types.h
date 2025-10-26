@@ -56,7 +56,7 @@ struct EmptyType {};                ///< "Null" type used by templates
 
 typedef char             UTF8;        ///< Compiler independent 8  bit Unicode encoded character
 
-#if defined(SM_COMPILER_MSVC) && defined(__clang__)
+#if defined(SMTECH_COMPILER_MSVC) && defined(__clang__)
 // Clang's MSVC compatibility mode doesn't currently support /Zc:wchar_t-,
 // which we rely on to avoid type conversion errors when calling system
 // APIs when UTF16 is defined as unsigned short.  So, just define UTF16
@@ -108,14 +108,12 @@ static const F32 F32_MAX = F32(3.402823466e+38F);                 ///< Constant 
 //--------------------------------------
 // Identify the compiler being used
 
-// PC-lint
-#if defined(_lint)
-#  include "platform/types.lint.h"
+
 // Metrowerks CodeWarrior
-#elif defined(__MWERKS__)
+#if defined(__MWERKS__)
 #  include "platform/types.codewarrior.h"
 // Microsoft Visual C++/Visual.NET
-#elif defined(_MSC_VER)
+#elif defined(SMTECH_COMPILER_MSVC)
 #  include "platform/types.visualc.h"
 // GNU GCC
 #elif defined(__GNUC__)
