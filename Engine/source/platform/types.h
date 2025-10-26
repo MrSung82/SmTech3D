@@ -151,12 +151,22 @@ static const F32 F32_MAX = F32(3.402823466e+38F);                 ///< Constant 
 #endif
 
 /// Integral type matching the host's memory address width.
-#ifdef SMTECH_CPU_X64
-   typedef U64 MEM_ADDRESS;
-#else
-   typedef U32 MEM_ADDRESS;
-#endif
+typedef std::uintptr_t MEM_ADDRESS;
 
+
+/// Platform dependent file date-time structure.  The definition of this structure
+/// will likely be different for each OS platform.
+#if defined(SMTECH_OS_WIN)
+struct FileTime
+{
+   U32 v1;
+   U32 v2;
+};
+#elif(SMTECH_OS_LINUX)
+typedef S32 FileTime;
+#else
+#error "Unsupported platform"
+#endif
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //---------------------------------------- GeneralMath Helpers ---------------------------------------- //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
