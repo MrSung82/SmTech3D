@@ -75,7 +75,7 @@ DefineEngineFunction( telnetSetParameters, void, ( int port, const char* console
 
 static void telnetCallback(U32 level, const char *consoleLine)
 {
-   TORQUE_UNUSED(level);
+   SMTECH_UNUSED(level);
    if (TelConsole)
      TelConsole->processConsoleLine(consoleLine);
 }

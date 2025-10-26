@@ -2452,7 +2452,7 @@ void GuiControl::getCursor(GuiCursor *&cursor, bool &showCursor, const GuiEvent 
    return;
 #endif
 
-   TORQUE_UNUSED(lastGuiEvent);
+   SMTECH_UNUSED(lastGuiEvent);
 
    if( !getRoot() )
       return;

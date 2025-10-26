@@ -847,7 +847,7 @@ const char *GuiPopUpMenuCtrl::getScriptValue()
 //------------------------------------------------------------------------------
 void GuiPopUpMenuCtrl::onRender( Point2I offset, const RectI &updateRect )
 {
-   TORQUE_UNUSED(updateRect);
+   SMTECH_UNUSED(updateRect);
    Point2I localStart;
 
    if ( mScrollDir != GuiScrollCtrl::None )
@@ -1416,7 +1416,7 @@ bool GuiPopUpMenuCtrl::getColoredBox( ColorI &fontColor, S32 id )
 //------------------------------------------------------------------------------
 void GuiPopUpMenuCtrl::onMouseDown( const GuiEvent &event )
 {
-   TORQUE_UNUSED(event);
+   SMTECH_UNUSED(event);
 
    if( !mVisible || !mActive || !mAwake )
       return;
@@ -1427,7 +1427,7 @@ void GuiPopUpMenuCtrl::onMouseDown( const GuiEvent &event )
 //------------------------------------------------------------------------------
 void GuiPopUpMenuCtrl::onMouseUp( const GuiEvent &event )
 {
-   TORQUE_UNUSED(event);
+   SMTECH_UNUSED(event);
 }
 
 //------------------------------------------------------------------------------

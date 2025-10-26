@@ -408,7 +408,7 @@ void GameBase::processTick(const Move * move)
 
 F32 GameBase::getUpdatePriority(CameraScopeQuery *camInfo, U32 updateMask, S32 updateSkips)
 {
-   TORQUE_UNUSED(updateMask);
+   SMTECH_UNUSED(updateMask);
 
    // Calculate a priority used to decide if this object
    // will be updated on the client.  All the weights

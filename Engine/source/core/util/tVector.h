@@ -216,8 +216,8 @@ template<class T> inline Vector<T>::Vector(const U32 initialSize,
    mFileAssociation = fileName;
    mLineAssociation = lineNum;
 #else
-//   TORQUE_UNUSED(fileName);
-//   TORQUE_UNUSED(lineNum);
+//   SMTECH_UNUSED(fileName);
+//   SMTECH_UNUSED(lineNum);
 #endif
 
    mArray        = 0;
@@ -234,8 +234,8 @@ template<class T> inline Vector<T>::Vector(const char* fileName,
    mFileAssociation = fileName;
    mLineAssociation = lineNum;
 #else
-//   TORQUE_UNUSED(fileName);
-//   TORQUE_UNUSED(lineNum);
+//   SMTECH_UNUSED(fileName);
+//   SMTECH_UNUSED(lineNum);
 #endif
 
    mArray        = 0;

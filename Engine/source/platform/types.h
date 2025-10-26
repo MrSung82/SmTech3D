@@ -23,49 +23,50 @@
 #ifndef _TORQUE_TYPES_H_
 #define _TORQUE_TYPES_H_
 
-#if (defined _MSC_VER) && (_MSC_VER <= 1500)
-#include "platformWin32/stdint.h"
-#else
-#include <stdint.h>
+#if defined(_MSC_VER)
+#include "smMsvcVersion.h"
+#define SMTECH_COMPILER_MSVC 1
 #endif
+#include <cstdint>
+#include <cstddef>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //-----------------------------------------Basic Types--------------------------------------------------//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-typedef signed char        S8;      ///< Compiler independent Signed Char
-typedef unsigned char      U8;      ///< Compiler independent Unsigned Char
+typedef std::int8_t        S8;      ///< Compiler independent Signed Char
+typedef std::uint8_t       U8;      ///< Compiler independent Unsigned Char
 
-typedef signed short       S16;     ///< Compiler independent Signed 16-bit short
-typedef unsigned short     U16;     ///< Compiler independent Unsigned 16-bit short
+typedef std::int16_t       S16;     ///< Compiler independent Signed 16-bit short
+typedef std::uint16_t      U16;     ///< Compiler independent Unsigned 16-bit short
 
-typedef signed int         S32;     ///< Compiler independent Signed 32-bit integer
-typedef unsigned int       U32;     ///< Compiler independent Unsigned 32-bit integer
+typedef std::int32_t       S32;     ///< Compiler independent Signed 32-bit integer
+typedef std::uint32_t      U32;     ///< Compiler independent Unsigned 32-bit integer
 
 typedef float              F32;     ///< Compiler independent 32-bit float
 typedef double             F64;     ///< Compiler independent 64-bit float
 
 struct EmptyType {};                ///< "Null" type used by templates
 
-#define TORQUE_UNUSED(var) (void)sizeof(var)
+#define SMTECH_UNUSED(var) ((void)sizeof(var))
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //----------------------------------------String Types--------------------------------------------------//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-typedef char           UTF8;        ///< Compiler independent 8  bit Unicode encoded character
+typedef char             UTF8;        ///< Compiler independent 8  bit Unicode encoded character
 
-#if defined(_MSC_VER) && defined(__clang__)
+#if defined(SM_COMPILER_MSVC) && defined(__clang__)
 // Clang's MSVC compatibility mode doesn't currently support /Zc:wchar_t-,
 // which we rely on to avoid type conversion errors when calling system
 // APIs when UTF16 is defined as unsigned short.  So, just define UTF16
 // as wchar_t instead since it's always a 2 byte unsigned on windows anyway.
-typedef wchar_t        UTF16;
+typedef wchar_t         UTF16;
 #else
-typedef unsigned short UTF16;       ///< Compiler independent 16 bit Unicode encoded character
+typedef std::uint16_t   UTF16;       ///< Compiler independent 16 bit Unicode encoded character
 #endif
 
-typedef unsigned int   UTF32;       ///< Compiler independent 32 bit Unicode encoded character
+typedef std::uint32_t   UTF32;       ///< Compiler independent 32 bit Unicode encoded character
 
 typedef const char* StringTableEntry;
 
@@ -103,11 +104,7 @@ static const U32 U32_MAX = U32(0xffffffff);                       ///< Constant 
 static const F32 F32_MIN = F32(1.175494351e-38F);                 ///< Constant Min Limit F32
 static const F32 F32_MAX = F32(3.402823466e+38F);                 ///< Constant Max Limit F32
 
-// define all the variants of Offset that we might use
-#define _Offset_Normal(x, cls) ((dsize_t)((const char *)&(((cls *)1)->x)-(const char *)1))
-#define _Offset_Variant_1(x, cls) ((int)(&((cls *)1)->x) - 1)
-#define _Offset_Variant_2(x, cls) offsetof(cls, x) // also requires #include <stddef.h>
-
+#define SMTECH_OFFSET_OF(x, cls) offsetof(cls, x)
 //--------------------------------------
 // Identify the compiler being used
 

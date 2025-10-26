@@ -135,8 +135,8 @@ void TSMesh::render( TSMaterialList *materials,
                      const char *meshName)
 {
    // These are only used by TSSkinMesh.
-   TORQUE_UNUSED( isSkinDirty );   
-   TORQUE_UNUSED( transforms );
+   SMTECH_UNUSED( isSkinDirty );   
+   SMTECH_UNUSED( transforms );
 
    // Pass our shared VB.
    innerRender(materials, rdata, vertexBuffer, mPB, meshName);
@@ -239,11 +239,11 @@ void TSMesh::innerRender( TSMaterialList *materials, const TSRenderState &rdata,
       S32 fan = draw.matIndex & TSDrawPrimitive::Fan;
       S32 indexed = draw.matIndex & TSDrawPrimitive::Indexed;
       S32 type = draw.matIndex & TSDrawPrimitive::TypeMask;
-      TORQUE_UNUSED(triangles);
-      TORQUE_UNUSED(strip);
-      TORQUE_UNUSED(fan);
-      TORQUE_UNUSED(indexed);
-      TORQUE_UNUSED(type);
+      SMTECH_UNUSED(triangles);
+      SMTECH_UNUSED(strip);
+      SMTECH_UNUSED(fan);
+      SMTECH_UNUSED(indexed);
+      SMTECH_UNUSED(type);
       //define TORQUE_DEBUG_BREAK_INSPECT, and insert debug break here to inspect the above elements at runtime
 #endif
 
@@ -1528,11 +1528,11 @@ bool TSSkinMesh::buildPolyList( S32 frame, AbstractPolyList *polyList, U32 &surf
 
 bool TSSkinMesh::castRay( S32 frame, const Point3F &start, const Point3F &end, RayInfo *rayInfo, TSMaterialList *materials )
 {
-   TORQUE_UNUSED(frame);
-   TORQUE_UNUSED(start);
-   TORQUE_UNUSED(end);
-   TORQUE_UNUSED(rayInfo);
-   TORQUE_UNUSED(materials);
+   SMTECH_UNUSED(frame);
+   SMTECH_UNUSED(start);
+   SMTECH_UNUSED(end);
+   SMTECH_UNUSED(rayInfo);
+   SMTECH_UNUSED(materials);
 
    return false;
 }
@@ -1544,7 +1544,7 @@ bool TSSkinMesh::buildConvexHull()
 
 void TSSkinMesh::computeBounds( const MatrixF &transform, Box3F &bounds, S32 frame, Point3F *center, F32 *radius )
 {
-   TORQUE_UNUSED(frame);
+   SMTECH_UNUSED(frame);
 
    if (mVerts.size() != 0)
    {

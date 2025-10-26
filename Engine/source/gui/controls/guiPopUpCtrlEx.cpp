@@ -1029,7 +1029,7 @@ const char *GuiPopUpMenuCtrlEx::getScriptValue()
 //------------------------------------------------------------------------------
 void GuiPopUpMenuCtrlEx::onRender(Point2I offset, const RectI &updateRect)
 {
-   TORQUE_UNUSED(updateRect);
+   SMTECH_UNUSED(updateRect);
    Point2I localStart;
 
    if ( mScrollDir != GuiScrollCtrl::None )
@@ -1639,14 +1639,14 @@ bool GuiPopUpMenuCtrlEx::getColoredBox( ColorI &fontColor, S32 id )
 //------------------------------------------------------------------------------
 void GuiPopUpMenuCtrlEx::onMouseDown(const GuiEvent &event)
 {
-   TORQUE_UNUSED(event);
+   SMTECH_UNUSED(event);
    onAction();
 }
 
 //------------------------------------------------------------------------------
 void GuiPopUpMenuCtrlEx::onMouseUp(const GuiEvent &event)
 {
-   TORQUE_UNUSED(event);
+   SMTECH_UNUSED(event);
 }
 
 //------------------------------------------------------------------------------

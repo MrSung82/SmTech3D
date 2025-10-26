@@ -399,7 +399,7 @@ void CreatorTree::onMouseDown(const GuiEvent & event)
 
 void CreatorTree::onMouseDragged(const GuiEvent & event)
 {
-   TORQUE_UNUSED(event);
+   SMTECH_UNUSED(event);
 }
 
 //------------------------------------------------------------------------------

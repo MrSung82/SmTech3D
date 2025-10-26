@@ -49,7 +49,7 @@ void AdvancedLightingFeatures::registerFeatures( const GFXFormat &deferredTarget
    AssertFatal( !smFeaturesRegistered, "AdvancedLightingFeatures::registerFeatures() - Features already registered. Bad!" );
 
    // If we ever need this...
-   TORQUE_UNUSED(lightInfoTargetFormat);
+   SMTECH_UNUSED(lightInfoTargetFormat);
 
    ConditionerFeature *cond = NULL;
 

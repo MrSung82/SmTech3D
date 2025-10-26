@@ -493,7 +493,7 @@ void GuiFrameSetCtrl::onMouseDown(const GuiEvent &event)
 //-----------------------------------------------------------------------------
 void GuiFrameSetCtrl::onMouseUp(const GuiEvent &event)
 {
-   TORQUE_UNUSED(event);
+   SMTECH_UNUSED(event);
    if (mCurHitRegion != NONE)
    {
       mCurHitRegion = NONE;
@@ -963,7 +963,7 @@ void GuiFrameSetCtrl::computeSizes(bool balanceFrames)
 // the available height & width proportionally.
 void GuiFrameSetCtrl::rebalance(const Point2I &newExtent)
 {
-   TORQUE_UNUSED(newExtent);
+   SMTECH_UNUSED(newExtent);
 
    // look at old_width and old_height - current extent
    F32 widthScale = (F32)newExtent.x/(F32)getWidth();

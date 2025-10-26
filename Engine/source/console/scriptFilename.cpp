@@ -372,7 +372,7 @@ DefineEngineFunction(expandOldFilename, const char*, (const char* filename),,
 ConsoleToolFunction(collapseFilename, const char*, 2, 2, "(string filename)"
                "@internal Editor use only")
 {
-   TORQUE_UNUSED(argc);
+   SMTECH_UNUSED(argc);
    static const U32 bufSize = 1024;
    char* ret = Con::getReturnBuffer( bufSize );
    Con::collapseScriptFilename(ret, bufSize, argv[1]);

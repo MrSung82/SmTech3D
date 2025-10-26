@@ -1906,7 +1906,7 @@ void WorldEditor::onEditorEnable()
 
 void WorldEditor::get3DCursor(GuiCursor *&cursor, bool &visible, const Gui3DMouseEvent &event)
 {
-   TORQUE_UNUSED(event);
+   SMTECH_UNUSED(event);
    cursor = NULL;
    visible = false;
 

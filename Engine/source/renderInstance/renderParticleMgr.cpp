@@ -152,7 +152,7 @@ void RenderParticleMgr::addElement( RenderInst *inst )
       ClippedPolyList screenClipper;
       screenClipper.setBaseTransform(MatrixF::Identity);
       screenClipper.setTransform(&MatrixF::Identity, Point3F::One);
-      TORQUE_UNUSED(numPlanes);
+      SMTECH_UNUSED(numPlanes);
 
       Point4F tempPt(0.0f, 0.0f, 0.0f, 1.0f);
       pri->bbModelViewProj->mul(tempPt);

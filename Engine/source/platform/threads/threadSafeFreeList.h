@@ -177,7 +177,7 @@ class ThreadSafeFreeListNode : public ThreadSafeRefCount< T, DeletePolicy >
       {
          AssertFatal( size <= sizeof( T ),
             "ThreadSafeFreeListNode::new() - size exceeds limit of freelist" );
-         TORQUE_UNUSED( size );
+         SMTECH_UNUSED( size );
          return freeList.alloc();
       }
       static void operator delete( void* ptr, ThreadSafeFreeList< T >& freeList )

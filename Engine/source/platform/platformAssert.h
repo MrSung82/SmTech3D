@@ -102,8 +102,8 @@ public:
 
 #else
 
-#define AssertFatal(x, y) TORQUE_UNUSED(x)
-#define AssertWarn(x, y)  TORQUE_UNUSED(x)
+#define AssertFatal(x, y) SMTECH_UNUSED(x)
+#define AssertWarn(x, y)  SMTECH_UNUSED(x)
 
 #endif
 

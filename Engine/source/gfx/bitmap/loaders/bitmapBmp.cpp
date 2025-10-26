@@ -170,7 +170,7 @@ static bool sReadBMP(Stream &stream, GBitmap *bitmap)
 
 static bool sWriteBMP(GBitmap *bitmap, Stream &stream, U32 compressionLevel)
 {
-   TORQUE_UNUSED( compressionLevel );  // BMP does not use compression
+   SMTECH_UNUSED( compressionLevel );  // BMP does not use compression
 
    BITMAPINFOHEADER  bi;
    BITMAPFILEHEADER  bf;

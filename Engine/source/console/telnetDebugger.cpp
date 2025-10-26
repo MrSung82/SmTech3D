@@ -141,7 +141,7 @@ DefineEngineFunction( dbgDisconnect, void, (), , "()"
 
 static void debuggerConsumer(U32 level, const char *line)
 {
-   TORQUE_UNUSED(level);
+   SMTECH_UNUSED(level);
    if (TelDebugger)
       TelDebugger->processConsoleLine(line);
 }

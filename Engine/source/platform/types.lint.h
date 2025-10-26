@@ -47,8 +47,8 @@ struct FileTime
 #endif
 
 #ifndef Offset
-#define Offset(x, cls) _Offset_Normal(x, cls)
-#define OffsetNonConst(x, cls) _Offset_Normal(x, cls)
+#define Offset(x, cls) SMTECH_OFFSET_OF(x, cls)
+#define OffsetNonConst(x, cls) SMTECH_OFFSET_OF(x, cls)
 #endif
 
 #ifndef NULL

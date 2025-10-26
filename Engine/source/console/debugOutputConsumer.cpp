@@ -43,7 +43,7 @@ void destroy()
 
 void logCallback( U32 level, const char *consoleLine )
 {
-   TORQUE_UNUSED(level);
+   SMTECH_UNUSED(level);
    if( debugOutputEnabled )
    {
       Platform::outputDebugString( "%s", consoleLine );

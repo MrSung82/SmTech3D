@@ -80,7 +80,7 @@ bool SphereF::intersectsRay( const Point3F &start, const Point3F &end ) const
 
    /*
    F32 t = 0;
-   TORQUE_UNUSED(t);
+   SMTECH_UNUSED(t);
    */
 
    // if t1 is less than zero, the object is in the ray's negative direction

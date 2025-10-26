@@ -447,10 +447,10 @@ void TSShapeInstance::computeBounds(S32 dl, Box3F & bounds)
 
 bool TSShapeInstance::ObjectInstance::buildPolyList(S32 objectDetail, AbstractPolyList *polyList, U32 &surfaceKey, TSMaterialList *materials )
 {
-   TORQUE_UNUSED( objectDetail );
-   TORQUE_UNUSED( polyList );
-   TORQUE_UNUSED( surfaceKey );
-   TORQUE_UNUSED( materials );
+   SMTECH_UNUSED( objectDetail );
+   SMTECH_UNUSED( polyList );
+   SMTECH_UNUSED( surfaceKey );
+   SMTECH_UNUSED( materials );
 
    AssertFatal(0,"TSShapeInstance::ObjectInstance::buildPolyList:  no default method.");
    return false;
@@ -458,11 +458,11 @@ bool TSShapeInstance::ObjectInstance::buildPolyList(S32 objectDetail, AbstractPo
 
 bool TSShapeInstance::ObjectInstance::getFeatures(S32 objectDetail, const MatrixF& mat, const Point3F& n, ConvexFeature* cf, U32& surfaceKey)
 {
-   TORQUE_UNUSED( objectDetail );
-   TORQUE_UNUSED( mat );
-   TORQUE_UNUSED( n );
-   TORQUE_UNUSED( cf );
-   TORQUE_UNUSED( surfaceKey );
+   SMTECH_UNUSED( objectDetail );
+   SMTECH_UNUSED( mat );
+   SMTECH_UNUSED( n );
+   SMTECH_UNUSED( cf );
+   SMTECH_UNUSED( surfaceKey );
 
    AssertFatal(0,"TSShapeInstance::ObjectInstance::buildPolyList:  no default method.");
    return false;
@@ -475,10 +475,10 @@ void TSShapeInstance::ObjectInstance::support(S32, const Point3F&, F32*, Point3F
 
 bool TSShapeInstance::ObjectInstance::castRay( S32 objectDetail, const Point3F &start, const Point3F &end, RayInfo *rayInfo, TSMaterialList *materials )
 {
-   TORQUE_UNUSED( objectDetail );
-   TORQUE_UNUSED( start );
-   TORQUE_UNUSED( end );
-   TORQUE_UNUSED( rayInfo );
+   SMTECH_UNUSED( objectDetail );
+   SMTECH_UNUSED( start );
+   SMTECH_UNUSED( end );
+   SMTECH_UNUSED( rayInfo );
 
    AssertFatal(0,"TSShapeInstance::ObjectInstance::castRay:  no default method.");
    return false;
@@ -526,32 +526,32 @@ bool TSShapeInstance::MeshObjectInstance::castRayRendered( S32 objectDetail, con
 
 bool TSShapeInstance::ObjectInstance::castRayOpcode( S32 objectDetail, const Point3F & start, const Point3F & end, RayInfo *rayInfo, TSMaterialList* materials )
 {
-   TORQUE_UNUSED( objectDetail );
-   TORQUE_UNUSED( start );
-   TORQUE_UNUSED( end );
-   TORQUE_UNUSED( rayInfo );
-   TORQUE_UNUSED( materials );
+   SMTECH_UNUSED( objectDetail );
+   SMTECH_UNUSED( start );
+   SMTECH_UNUSED( end );
+   SMTECH_UNUSED( rayInfo );
+   SMTECH_UNUSED( materials );
 
    return false;
 }
 
 bool TSShapeInstance::ObjectInstance::buildPolyListOpcode( S32 objectDetail, AbstractPolyList *polyList, U32 &surfaceKey, TSMaterialList *materials )
 {
-   TORQUE_UNUSED( objectDetail );
-   TORQUE_UNUSED( polyList );
-   TORQUE_UNUSED( surfaceKey );
-   TORQUE_UNUSED( materials );
+   SMTECH_UNUSED( objectDetail );
+   SMTECH_UNUSED( polyList );
+   SMTECH_UNUSED( surfaceKey );
+   SMTECH_UNUSED( materials );
 
    return false;
 }
 
 bool TSShapeInstance::ObjectInstance::buildConvexOpcode( const MatrixF &mat, S32 objectDetail, const Box3F &bounds, Convex *c, Convex *list )
 {
-   TORQUE_UNUSED( mat );
-   TORQUE_UNUSED( objectDetail );
-   TORQUE_UNUSED( bounds );
-   TORQUE_UNUSED( c );
-   TORQUE_UNUSED( list );
+   SMTECH_UNUSED( mat );
+   SMTECH_UNUSED( objectDetail );
+   SMTECH_UNUSED( bounds );
+   SMTECH_UNUSED( c );
+   SMTECH_UNUSED( list );
 
    return false;
 }

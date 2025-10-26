@@ -214,7 +214,7 @@ DefineEngineMethod( NetObject, scopeToClient, void, ( NetConnection* client),,
 //ConsoleMethod(NetObject,scopeToClient,void,3,3,"(NetConnection %client)"
 //              "Cause the NetObject to be forced as scoped on the specified NetConnection.")
 //{
-//   TORQUE_UNUSED(argc);
+//   SMTECH_UNUSED(argc);
 //   NetConnection *conn;
 //   if(!Sim::findObject(argv[2], conn))
 //   {
@@ -242,7 +242,7 @@ DefineEngineMethod( NetObject, clearScopeToClient, void, ( NetConnection* client
 //ConsoleMethod(NetObject,clearScopeToClient,void,3,3,"clearScopeToClient(%client)"
 //              "Undo the effects of a scopeToClient() call.")
 //{
-//   TORQUE_UNUSED(argc);
+//   SMTECH_UNUSED(argc);
 //   NetConnection *conn;
 //   if(!Sim::findObject(argv[2], conn))
 //   {
@@ -264,7 +264,7 @@ DefineEngineMethod( NetObject, setScopeAlways, void, (),,
 
 //ConsoleMethod(NetObject,setScopeAlways,void,2,2,"Always scope this object on all connections.")
 //{
-//   TORQUE_UNUSED(argc); TORQUE_UNUSED(argv);
+//   SMTECH_UNUSED(argc); SMTECH_UNUSED(argv);
 //   object->setScopeAlways();
 //}
 

@@ -50,8 +50,8 @@ ConsoleDocClass( RenderPassStateToken,
 
 void RenderPassStateToken::process(SceneRenderState *state, RenderPassStateBin *callingBin)
 {
-   TORQUE_UNUSED(state);
-   TORQUE_UNUSED(callingBin);
+   SMTECH_UNUSED(state);
+   SMTECH_UNUSED(callingBin);
    AssertWarn(false, "RenderPassStateToken is an abstract class, you must re-implement process()");
 }
 
@@ -62,7 +62,7 @@ void RenderPassStateToken::reset()
 
 void RenderPassStateToken::enable( bool enabled /*= true*/ )
 {
-   TORQUE_UNUSED(enabled);
+   SMTECH_UNUSED(enabled);
    AssertWarn(false, "RenderPassStateToken is an abstract class, you must re-implement enable()");
 }
 
@@ -80,7 +80,7 @@ static bool _set_enable( void *object, const char *index, const char *data )
 
 static const char *_get_enable(void* obj, const char* data)
 {
-   TORQUE_UNUSED(data);
+   SMTECH_UNUSED(data);
    return reinterpret_cast<RenderPassStateToken *>(obj)->isEnabled() ? "true" : "false";
 }
 

@@ -448,7 +448,7 @@ void GuiTextEditCtrl::onMouseDragged( const GuiEvent &event )
 
 void GuiTextEditCtrl::onMouseUp(const GuiEvent &event)
 {
-   TORQUE_UNUSED(event);
+   SMTECH_UNUSED(event);
    mDragHit = false;
    mScrollDir = 0;
    mouseUnlock();

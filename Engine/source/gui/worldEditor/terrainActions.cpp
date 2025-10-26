@@ -172,7 +172,7 @@ void SoftSelectAction::process(Selection * sel, const Gui3DMouseEvent &, bool se
 
 void OutlineSelectAction::process(Selection * sel, const Gui3DMouseEvent & event, bool, Type type)
 {
-   TORQUE_UNUSED(sel); TORQUE_UNUSED(event); TORQUE_UNUSED(type);
+   SMTECH_UNUSED(sel); SMTECH_UNUSED(event); SMTECH_UNUSED(type);
    switch(type)
    {
       case Begin:

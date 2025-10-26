@@ -518,8 +518,8 @@ bool TSShapeConstructor::writeField(StringTableEntry fieldname, const char *valu
       }                                                              \
    }                                                                 \
    TSShape::Node* var = var##Index < 0 ? NULL : &(mShape->nodes[var##Index]); \
-   TORQUE_UNUSED(var##Index);                                        \
-   TORQUE_UNUSED(var)
+   SMTECH_UNUSED(var##Index);                                        \
+   SMTECH_UNUSED(var)
 
 // Do a node lookup, root node ("") is not allowed
 #define GET_NODE_INDEX_NO_ROOT(func, var, name, ret)                 \
@@ -531,8 +531,8 @@ bool TSShapeConstructor::writeField(StringTableEntry fieldname, const char *valu
       return ret;                                                    \
    }                                                                 \
    TSShape::Node* var = &(mShape->nodes[var##Index]);                \
-   TORQUE_UNUSED(var##Index);                                        \
-   TORQUE_UNUSED(var)
+   SMTECH_UNUSED(var##Index);                                        \
+   SMTECH_UNUSED(var)
 
 // Do an object lookup
 #define GET_OBJECT(func, var, name, ret)                             \
@@ -544,8 +544,8 @@ bool TSShapeConstructor::writeField(StringTableEntry fieldname, const char *valu
       return ret;                                                    \
    }                                                                 \
    TSShape::Object* var = &(mShape->objects[var##Index]);            \
-   TORQUE_UNUSED(var##Index);                                        \
-   TORQUE_UNUSED(var)
+   SMTECH_UNUSED(var##Index);                                        \
+   SMTECH_UNUSED(var)
 
 // Do a mesh lookup
 #define GET_MESH(func, var, name, ret)                               \
@@ -567,8 +567,8 @@ bool TSShapeConstructor::writeField(StringTableEntry fieldname, const char *valu
       return ret;                                                    \
    }                                                                 \
    TSShape::Sequence* var = &(mShape->sequences[var##Index]);        \
-   TORQUE_UNUSED(var##Index);                                        \
-   TORQUE_UNUSED(var);
+   SMTECH_UNUSED(var##Index);                                        \
+   SMTECH_UNUSED(var);
 
 
 //-----------------------------------------------------------------------------

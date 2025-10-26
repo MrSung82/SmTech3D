@@ -1005,7 +1005,7 @@ void GuiWindowCtrl::onMouseUp(const GuiEvent &event)
    mMaximizeButtonPressed = false;
    mMinimizeButtonPressed = false;
 
-   TORQUE_UNUSED(event);
+   SMTECH_UNUSED(event);
    mouseUnlock();
 
    mMouseMovingWin = false;

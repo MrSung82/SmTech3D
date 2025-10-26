@@ -171,7 +171,7 @@ static bool sReadJPG(Stream &stream, GBitmap *bitmap)
 //--------------------------------------------------------------------------
 static bool sWriteJPG(GBitmap *bitmap, Stream &stream, U32 compressionLevel)
 {
-   TORQUE_UNUSED(compressionLevel); // compression level not currently hooked up
+   SMTECH_UNUSED(compressionLevel); // compression level not currently hooked up
 
    GFXFormat   format = bitmap->getFormat();
 

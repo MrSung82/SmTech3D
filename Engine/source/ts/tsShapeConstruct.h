@@ -367,7 +367,7 @@ public:
       /* Initialise change set command (may or may not be added) */                             \
       TSShapeConstructor::ChangeSet::Command newCmd( #name );                                   \
       newCmd.addArgs rawArgs ;                                                                  \
-      TORQUE_UNUSED(newCmd);
+      SMTECH_UNUSED(newCmd);
 
 
 /* This macro just hides the name of the auto-created ChangeSet::Command from

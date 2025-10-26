@@ -763,7 +763,7 @@ void NetConnection::handlePacket(BitStream *bstream)
 
 void NetConnection::connectionError(const char *errorString)
 {
-   TORQUE_UNUSED(errorString);
+   SMTECH_UNUSED(errorString);
 }
 
 //--------------------------------------------------------------------
@@ -1279,7 +1279,7 @@ void NetConnection::sendDisconnectPacket(const char *reason)
 
 void NetConnection::onDisconnect(const char *reason)
 {
-   TORQUE_UNUSED(reason);
+   SMTECH_UNUSED(reason);
 }
 
 void NetConnection::onConnectionRejected(const char *reason)
@@ -1317,13 +1317,13 @@ bool NetConnection::readConnectRequest(BitStream *stream, const char **errorStri
 
 void NetConnection::writeConnectAccept(BitStream *stream)
 {
-   TORQUE_UNUSED(stream);
+   SMTECH_UNUSED(stream);
 }
 
 bool NetConnection::readConnectAccept(BitStream *stream, const char **errorString)
 {
-   TORQUE_UNUSED(stream);
-   TORQUE_UNUSED(errorString);
+   SMTECH_UNUSED(stream);
+   SMTECH_UNUSED(errorString);
    return true;
 }
 

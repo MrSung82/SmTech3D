@@ -34,8 +34,8 @@
 
 #if _MSC_VER >= 1930
 // MSVC 17.0+ (Visual Studio 2022)
-#   define SM_MSVC_VER_2022
+#   define SMTECH_MSVC_VER_2022
 #elif _MSC_VER >= 1920
 // MSVC 16.0 (Visual Studio 2019)
-#   define SM_MSVC_VER_2019
+#   define SMTECH_MSVC_VER_2019
 #endif

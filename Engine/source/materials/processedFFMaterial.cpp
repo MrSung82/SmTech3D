@@ -312,8 +312,8 @@ bool ProcessedFFMaterial::init(  const FeatureSet &features,
                                  const GFXVertexFormat *vertexFormat,
                                  const MatFeaturesDelegate &featuresDelegate )
 {
-   TORQUE_UNUSED( vertexFormat );
-   TORQUE_UNUSED( featuresDelegate );
+   SMTECH_UNUSED( vertexFormat );
+   SMTECH_UNUSED( featuresDelegate );
 
    _setStageData();
 
